@@ -1,0 +1,6 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/Diga.WebView2.Interop/.vs/Diga.WebView2.Interop
+/Diga.WebView2.Interop/obj
