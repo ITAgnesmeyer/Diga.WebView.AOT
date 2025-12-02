@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<Title>Diga.WebView2.Interop.AOT</Title>
+		<Description>Diga.WebView2.Interop AOT</Description>
+		<AssemblyVersion>1.0.0.2</AssemblyVersion>
+		<FileVersion>1.0.0.2</FileVersion>
+		<IncludeSymbols>True</IncludeSymbols>
+		<PackageId>Diga.WebView2.Interop.AOT</PackageId>
+		<Version>1.0.2-preview</Version>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<SignAssembly>True</SignAssembly>
+		<DelaySign>False</DelaySign>
+		<AssemblyOriginatorKeyFile>diga.webview2.interop.snk</AssemblyOriginatorKeyFile>
+		<Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>WebView2</PackageTags>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<IsAotCompatible>True</IsAotCompatible>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<IsAotCompatible>True</IsAotCompatible>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
