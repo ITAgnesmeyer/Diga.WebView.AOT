@@ -1,0 +1,22 @@
+﻿using Diga.WebView2.Interop;
+using Diga.WebView2.Wrapper.Implementation;
+namespace Diga.WebView2.Wrapper
+{
+
+    public class HttpRequestHeaders : HttpRequestHeadersInterface
+    {
+        public HttpRequestHeaders(ICoreWebView2HttpRequestHeaders iface):base(iface) 
+        { 
+            
+        }
+
+        public new HttpHeadersCollectionIterator GetIterator()
+        {
+            var iterator = base.GetIterator();
+            return new HttpHeadersCollectionIterator(iterator);
+        }
+
+
+
+    }
+}

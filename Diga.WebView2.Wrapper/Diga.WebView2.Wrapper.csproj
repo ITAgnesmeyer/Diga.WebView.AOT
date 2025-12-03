@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<PackageId>Diga.WebView2.Wrapper.AOT</PackageId>
+		<Title>Diga.WebView2.Wrapper.AOT</Title>
+		<Version>1.0.3-preview</Version>
+		<Copyright>Copyright 2024 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<SignAssembly>True</SignAssembly>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<AssemblyOriginatorKeyFile>diga.webview2.wrapper.snk</AssemblyOriginatorKeyFile>
+		<IncludeSymbols>True</IncludeSymbols>
+		<PackageTags>WebView2</PackageTags>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<IsAotCompatible>True</IsAotCompatible>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<IsAotCompatible>True</IsAotCompatible>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Diga.Core.Api.Win32" Version="2.0.26" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Diga.WebView2.Interop\Diga.WebView2.Interop.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
