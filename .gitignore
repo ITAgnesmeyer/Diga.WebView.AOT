@@ -6,3 +6,8 @@
 /Diga.WebView2.Interop/obj
 /Diga.WebView2.Interop/bin/Debug
 *.user
+/.vs
+/Diga.WebView2.Interop/.vs
+/Diga.WebView2.Wrapper/.vs
+/Diga.WebView2.Wrapper/bin/Debug/net10.0
+/Diga.WebView2.Wrapper/obj
