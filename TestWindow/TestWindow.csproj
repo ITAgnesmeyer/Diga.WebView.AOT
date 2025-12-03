@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <Win32Resource>app.res</Win32Resource>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreWindowsWrapper" Version="2.0.8.20" />
+    <PackageReference Include="Diga.Core.Api.Win32" Version="2.0.26" />
+    <PackageReference Include="MimeTypeExtension" Version="1.0.30" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diga.NativeControls.WebBrowser\Diga.NativeControls.WebBrowser.csproj" />
+    <ProjectReference Include="..\Diga.WebView2.Interop\Diga.WebView2.Interop.csproj" />
+    <ProjectReference Include="..\Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="lib\Diga.WebView2.Native.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\Diga.WebView2.Native.lib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

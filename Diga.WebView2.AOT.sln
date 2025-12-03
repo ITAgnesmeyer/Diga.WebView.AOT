@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34330.188
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.WebView2.Interop", "Diga.WebView2.Interop\Diga.WebView2.Interop.csproj", "{EDBD3D8D-4DBD-DF6B-28A6-B9DC8EF45BBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.WebView2.Wrapper", "Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj", "{FD35D213-35C7-515A-E0E0-EB595CE0B643}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.NativeControls.WebBrowser", "Diga.NativeControls.WebBrowser\Diga.NativeControls.WebBrowser.csproj", "{A3101929-943B-AE77-4B4B-021AAB0D68D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWindow", "TestWindow\TestWindow.csproj", "{E78B8309-2C8F-15F3-5A96-9EF0C154402E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78B8309-2C8F-15F3-5A96-9EF0C154402E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78B8309-2C8F-15F3-5A96-9EF0C154402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78B8309-2C8F-15F3-5A96-9EF0C154402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78B8309-2C8F-15F3-5A96-9EF0C154402E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
