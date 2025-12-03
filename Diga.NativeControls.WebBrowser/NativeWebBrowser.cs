@@ -28,7 +28,7 @@ namespace Diga.NativeControls.WebBrowser
         private readonly RpcHandler _RpcHandler = new RpcHandler();
         private NativeWindow _ParentNativeWindow = null;
         private WebView2Control _WebViewControl;
-        private static int ControlCounter = 0;
+        //private static int ControlCounter = 0;
         public event EventHandler<NavigationStartingEventArgs> NavigationStart;
         public event EventHandler<ContentLoadingEventArgs> ContentLoading;
         public event EventHandler<SourceChangedEventArgs> SourceChanged;
@@ -85,7 +85,7 @@ namespace Diga.NativeControls.WebBrowser
         //    }
         //}
 
-        public event EventHandler<WebViewButtonDownEventArgs> MouseButtonDown;
+        //public event EventHandler<WebViewButtonDownEventArgs> MouseButtonDown;
         public event EventHandler<ContextMenuRequestedEventArgs> ContextMenuRequested;
         public WebView2View WebView2 => this._WebViewControl.WebView;
         private bool IsBrowserEnded = false;
