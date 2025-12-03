@@ -13,3 +13,13 @@ We have decided to separate this project from Diga.WebView2. The reasons for thi
 
 We plan to integrate as much of Diga.WebView2 into this project as possible. However, whether we will achieve complete coverage remains uncertain at this time.
 
+
+
+
+## Projekte
+
+- [TestWindow](TestWindow/README.md) => CoreWindowsWrapper basied WebBrowser APP with Diga.NativeControls.WebBrowser.AOT
+- [MinimalWinForms](MinimalWinForms/README.md) => Minimal Windows Forms APP with Diga.WebView2.Wrapper.AOT
+
+
+
