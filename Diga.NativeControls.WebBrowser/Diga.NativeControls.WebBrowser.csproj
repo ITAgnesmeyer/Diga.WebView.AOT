@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <PackageId>Diga.NativeControls.WebBrowser.AOT</PackageId>
+    <Title>Diga.NativeControls.WebBrowser.AOT</Title>
+    <Version>1.0.3-preview</Version>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Diga.NativeControls.WebBrowser.snk</AssemblyOriginatorKeyFile>
+    <Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <IsAotCompatible>True</IsAotCompatible>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <IsAotCompatible>True</IsAotCompatible>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreWindowsWrapper" Version="2.0.8.20" />
+    <PackageReference Include="Diga.Core.Api.Win32" Version="2.0.26" />
+    <PackageReference Include="MimeTypeExtension" Version="1.0.30" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diga.WebView2.Interop\Diga.WebView2.Interop.csproj" />
+    <ProjectReference Include="..\Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

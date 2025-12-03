@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.WebView2.Interop", "Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.WebView2.Wrapper", "Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj", "{FD35D213-35C7-515A-E0E0-EB595CE0B643}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diga.NativeControls.WebBrowser", "Diga.NativeControls.WebBrowser\Diga.NativeControls.WebBrowser.csproj", "{A3101929-943B-AE77-4B4B-021AAB0D68D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FD35D213-35C7-515A-E0E0-EB595CE0B643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD35D213-35C7-515A-E0E0-EB595CE0B643}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD35D213-35C7-515A-E0E0-EB595CE0B643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3101929-943B-AE77-4B4B-021AAB0D68D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
