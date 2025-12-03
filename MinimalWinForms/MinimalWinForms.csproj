@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+	  <!--Don't forget to disable while Developing!-->
+	  <PublishAot>true</PublishAot>
+	  <!--Don't forget to disable while Developing!-->
+	  <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
+	  
+	  
+	  
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diga.WebView2.Interop\Diga.WebView2.Interop.csproj" />
+    <ProjectReference Include="..\Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\TestWindow\lib\Diga.WebView2.Native.dll" Link="lib\Diga.WebView2.Native.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
