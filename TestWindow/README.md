@@ -1,5 +1,7 @@
 WebBrowser APP based on [CoreWindowsWrapper](https://github.com/ITAgnesmeyer/CoreWindowsWrapper)
+
 It uses the [Diga.NativeControls.WebBrowser](../Diga.NativeControls.WebBrowser/README.md) Library.
+
 #### Complile:
 
 Do not use Visual Studio Publish!
