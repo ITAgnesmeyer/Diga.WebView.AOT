@@ -13,3 +13,5 @@
 /Diga.WebView2.Wrapper/obj
 /Diga.NativeControls.WebBrowser/bin/Debug/net10.0
 /Diga.NativeControls.WebBrowser/obj
+/TestWindow/bin/Debug/net10.0
+/TestWindow/obj
