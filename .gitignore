@@ -15,3 +15,8 @@
 /Diga.NativeControls.WebBrowser/obj
 /TestWindow/bin/Debug/net10.0
 /TestWindow/obj
+/Diga.NativeControls.WebBrowser/bin/Release/net10.0
+/Diga.WebView2.Interop/bin/Release/net10.0
+/Diga.WebView2.Wrapper/bin/Release/net10.0
+/TestWindow/bin/Release/net10.0
+/TestWindow/Properties/PublishProfiles
