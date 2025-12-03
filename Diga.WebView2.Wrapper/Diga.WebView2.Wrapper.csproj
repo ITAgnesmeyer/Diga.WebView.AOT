@@ -8,7 +8,7 @@
 		<PackageId>Diga.WebView2.Wrapper.AOT</PackageId>
 		<Title>Diga.WebView2.Wrapper.AOT</Title>
 		<Version>1.0.3-preview</Version>
-		<Copyright>Copyright 2024 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+		<Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<SignAssembly>True</SignAssembly>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
