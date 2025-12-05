@@ -833,6 +833,15 @@ namespace Diga.WebView2.Wrapper
         {
             PrintToPdfCompleted?.Invoke(this, e);
         }
+        public WebView2Profile Profile
+        {
+            get
+            {
+                if (this.WebView == null)
+                    return null;
+                return this.WebView.Profile;
+            }
+        }
 
         public void OpenDefaultDownloadDialog()
         {

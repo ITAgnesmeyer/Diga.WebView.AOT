@@ -687,6 +687,8 @@ namespace Diga.WebView2.Wrapper
             base.PrintToPdf(path, webView2PrintSettings.ToInterface(), handler);
         }
 
+        public new WebView2Profile Profile => new WebView2Profile((ICoreWebView2Profile6)base.Profile);
+
         public async Task<WebView2ExecuteScriptResult> ExecuteScriptWithResultAsync(string javaScript)
         {
             var source = new TaskCompletionSource<WebView2ExecuteScriptResult>();
