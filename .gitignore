@@ -22,3 +22,5 @@
 /TestWindow/Properties/PublishProfiles
 /MinimalWinForms/bin
 /MinimalWinForms/obj
+/Diga.NativeControls.WebBrowser/bin/Debug
+/Diga.WebView2.Wrapper/bin/Debug
