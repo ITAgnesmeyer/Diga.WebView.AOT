@@ -59,7 +59,13 @@ namespace MinimalWinForms
             {
                 this._WebViewControl.Created += OnCreated;
                 this._WebViewControl.BeforeCreate += OnBeforeCreate;
+                this._WebViewControl.ServerCertificateErrorDetected += OnServerCertificateErrorDetected;
             }
+        }
+
+        private void OnServerCertificateErrorDetected(object? sender, ServerCertificateErrorDetectedEventArgs e)
+        {
+           Debug.Print("ServerCertificateErrorDetected: " + e.ErrorStatus.ToString());
         }
 
         private void OnBeforeCreate(object? sender, BeforeCreateEventArgs e)
@@ -78,10 +84,12 @@ namespace MinimalWinForms
 
                 if (this.Url != null)
                 {
-                    this._WebViewControl.Navigate(this.Url.ToString());
+                    this._WebViewControl.NavigateToUri(this.Url);
                 }
             }
             this._WasCreated = true;
         }
+
+       
     }
 }

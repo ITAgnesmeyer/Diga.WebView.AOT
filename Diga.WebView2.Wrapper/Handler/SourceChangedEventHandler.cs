@@ -6,6 +6,8 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace Diga.WebView2.Wrapper
 {
+
+
     [GeneratedComClass]
     public partial class SourceChangedEventHandler : ICoreWebView2SourceChangedEventHandler
     {
