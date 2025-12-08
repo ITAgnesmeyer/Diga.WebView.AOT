@@ -5,6 +5,7 @@ namespace TestWindow
 {
     internal class Program
     {
+        public static string? ServerPrivateCertAllow { get; private set; }
         [STAThread]
         static void Main(string[] args)
         {
@@ -24,6 +25,16 @@ namespace TestWindow
                         rel = true;
                     }
                 }
+            }
+
+            if (args.Length > 2)
+            {
+                var serverPrivateCertAllow = args[2];
+                if (!string.IsNullOrEmpty(serverPrivateCertAllow))
+                {
+                    ServerPrivateCertAllow = serverPrivateCertAllow;
+                }
+
             }
             BrowserWindow window = new BrowserWindow();
             window.WebViewCreate += (o, e) =>

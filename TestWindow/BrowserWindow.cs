@@ -74,7 +74,7 @@ namespace TestWindow
                 AreDevToolsEnabled = true,
                 AreDefaultContextMenusEnabled = true,
                 IsStatusBarEnabled = false,
-               
+
 
             };
             this._Timer = new NativeTimer
@@ -84,17 +84,27 @@ namespace TestWindow
             };
             this._Timer.Tick += Timer_Tick;
             this._Browser.WebViewCreated += webView1_Created;
-            
+
             this._Browser.WebResourceRequested += webView1_WebResouceRequested;
             this._Browser.NavigationCompleted += webView1_NavigationCompleted;
             this._Browser.NavigationStart += webView1_NavigationStart;
             this._Browser.AcceleratorKeyPressed += webView1_AcceleratorKeyPressed;
             this._Browser.WebMessageReceived += webView1_WebMessageReceived;
             this._Browser.DownloadStarting += WebView1_DownloadStarting;
+            this._Browser.ServerCertificateErrorDetected += WebView1_ServerCertificateErrorDetected;
 
             this.Controls.Add(this._Browser);
             this.Controls.Add(this._Timer);
 
+        }
+
+        private void WebView1_ServerCertificateErrorDetected(object sender, ServerCertificateErrorDetectedEventArgs e)
+        {
+            if (e.ServerCertificate.Issuer == Program.ServerPrivateCertAllow)
+            {
+                e.Action = COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION.COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW;
+
+            }
         }
 
         private void WebView1_DownloadStarting(object sender, DownloadStartingEventArgs e)
@@ -124,7 +134,7 @@ namespace TestWindow
 
         private void Opt_BytesReceivedChanged(object sender, WebView2EventArgs e)
         {
-            if(sender is WebView2DownloadOperation opt)
+            if (sender is WebView2DownloadOperation opt)
             {
                 Debug.WriteLine($"BytesReceived: {opt.BytesReceived}");
             }
@@ -135,7 +145,7 @@ namespace TestWindow
         private string MessageToSend = string.Empty;
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
+
             if (IsTickRunning)
             {
                 return;
@@ -191,7 +201,7 @@ namespace TestWindow
             rpc.bufferType = "bufferType1";
             rpc.data.Add(new RpcData { Name = "Wert1", Value = "100" });
             var options = new JsonSerializerOptions { TypeInfoResolver = RpcContext.Default };
-            string jsString = JsonSerializer.Serialize(rpc,RpcContext.Default.Rpc);// "";//node.ToJsonString();
+            string jsString = JsonSerializer.Serialize(rpc, RpcContext.Default.Rpc);// "";//node.ToJsonString();
             byte[] arr = Encoding.UTF8.GetBytes(jsString);
 
             var sharedBuffer = this._Browser.CreateSharedBuffer((uint)arr.Length);
@@ -249,7 +259,7 @@ namespace TestWindow
 
         private void webView1_Created(object sender, EventArgs e)
         {
-           
+
             this._Browser.OpenDefaultDownloadDialog();
             WebViewCreateEventArgs args = new WebViewCreateEventArgs(this._Browser.Url, this._Browser.MonitoringUrl);
             WebViewCreate?.Invoke(this, args);

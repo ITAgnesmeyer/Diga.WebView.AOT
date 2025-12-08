@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<PackageId>Diga.WebView2.Wrapper.AOT</PackageId>
 		<Title>Diga.WebView2.Wrapper.AOT</Title>
-		<Version>1.0.3-preview</Version>
+		<Version>1.0.4-preview</Version>
 		<Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<SignAssembly>True</SignAssembly>
@@ -34,10 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
+		<None Include="README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>

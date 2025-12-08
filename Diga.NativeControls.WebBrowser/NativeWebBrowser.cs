@@ -87,6 +87,9 @@ namespace Diga.NativeControls.WebBrowser
 
         //public event EventHandler<WebViewButtonDownEventArgs> MouseButtonDown;
         public event EventHandler<ContextMenuRequestedEventArgs> ContextMenuRequested;
+
+        public event EventHandler<ServerCertificateErrorDetectedEventArgs> ServerCertificateErrorDetected;
+
         public WebView2View WebView2 => this._WebViewControl.WebView;
         private bool IsBrowserEnded = false;
         private string _Url;
@@ -159,8 +162,20 @@ namespace Diga.NativeControls.WebBrowser
             control.IsDocumentPlayingAudioChanged += OnIsDocumentPlayingAudioChangedIntern;
             control.IsDefaultDownloadDialogOpenChanged += OnIsDefaultDownloadDialogOpenChangedIntern;
             control.ContextMenuRequested += OnContextMenuRequestedIntern;
-            
+            control.ServerCertificateErrorDetected += OnServerCertificateErrorDetectedIntern;
 
+
+
+        }
+
+        private void OnServerCertificateErrorDetectedIntern(object sender, ServerCertificateErrorDetectedEventArgs e)
+        {
+            OnServerCertificateErrorDetected(sender, e);
+        }
+
+        private void OnServerCertificateErrorDetected(object sender, ServerCertificateErrorDetectedEventArgs e)
+        {
+            ServerCertificateErrorDetected?.Invoke(this, e);
         }
 
         private void OnCompoisitionControllerCursorChanged(object sender, CursorChangedEventArgs e)
