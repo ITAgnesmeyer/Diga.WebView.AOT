@@ -24,3 +24,6 @@
 /MinimalWinForms/obj
 /Diga.NativeControls.WebBrowser/bin/Debug
 /Diga.WebView2.Wrapper/bin/Debug
+/Diga.NativeControls.WebBrowser/bin/x64/Debug/net10.0
+/Diga.WebView2.Interop/bin/x64/Debug/net10.0
+/Diga.WebView2.Wrapper/bin/x64/Debug/net10.0
