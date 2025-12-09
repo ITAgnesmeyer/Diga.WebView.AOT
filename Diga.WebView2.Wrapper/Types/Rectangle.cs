@@ -4,24 +4,24 @@ namespace Diga.WebView2.Wrapper.Types
 {
     public class Rectangle
     {
-        private tagRECT _Rect;
+        private RECT _Rect;
 
-        public static implicit operator tagRECT(Rectangle input)
+        public static implicit operator RECT(Rectangle input)
         {
             return input._Rect;
         }
 
-        public static implicit operator Rectangle(tagRECT input)
+        public static implicit operator Rectangle(RECT input)
         {
             return new Rectangle(input);
         }
 
         public Rectangle()
         {
-            this._Rect = new tagRECT();
+            this._Rect = new RECT();
         }
 
-        public Rectangle(tagRECT rect)
+        public Rectangle(RECT rect)
         {
             this._Rect = rect;
         }

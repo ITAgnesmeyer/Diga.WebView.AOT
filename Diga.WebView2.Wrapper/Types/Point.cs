@@ -4,24 +4,24 @@ namespace Diga.WebView2.Wrapper.Types
 {
     public class Point
     {
-        private tagPOINT _Point;
+        private POINT _Point;
 
-        public static implicit operator tagPOINT(Point input)
+        public static implicit operator POINT(Point input)
         {
             return input._Point;
         }
 
-        public static implicit operator Point(tagPOINT input)
+        public static implicit operator Point(POINT input)
         {
             return new Point(input);
         }
         public Point()
         {
-            this._Point = new tagPOINT();
+            this._Point = new POINT();
 
         }
 
-        public Point(tagPOINT point)
+        public Point(POINT point)
         {
             this._Point = point;
         }

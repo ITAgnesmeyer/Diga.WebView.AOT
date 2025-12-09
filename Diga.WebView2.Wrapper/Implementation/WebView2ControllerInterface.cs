@@ -134,7 +134,7 @@ namespace Diga.WebView2.Wrapper.Implementation
             Controller = controller ?? throw new ArgumentNullException(nameof(controller));
         }
         public int IsVisible { get => Controller.GetIsVisible(); set => Controller.SetIsVisible(value); }
-        public tagRECT Bounds { get => Controller.GetBounds(); set => Controller.SetBounds(value); }
+        public RECT Bounds { get => Controller.GetBounds(); set => Controller.SetBounds(value); }
         public double ZoomFactor { get => Controller.GetZoomFactor(); set => Controller.SetZoomFactor(value); }
 
         public void add_ZoomFactorChanged([In, MarshalAs(UnmanagedType.Interface)] ICoreWebView2ZoomFactorChangedEventHandler eventHandler, out EventRegistrationToken token)
@@ -147,7 +147,7 @@ namespace Diga.WebView2.Wrapper.Implementation
             Controller.remove_ZoomFactorChanged(token);
         }
 
-        public void SetBoundsAndZoomFactor([In] tagRECT Bounds, [In] double ZoomFactor)
+        public void SetBoundsAndZoomFactor([In] RECT Bounds, [In] double ZoomFactor)
         {
             Controller.SetBoundsAndZoomFactor(Bounds, ZoomFactor);
         }

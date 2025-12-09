@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 namespace Diga.WebView2.Interop
 {
   [StructLayout(LayoutKind.Sequential, Pack = 4)]
-  public struct tagRECT
+  public struct RECT
   {
     public int left;
     public int top;

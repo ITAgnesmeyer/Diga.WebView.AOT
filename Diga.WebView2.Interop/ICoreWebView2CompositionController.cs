@@ -28,7 +28,7 @@ namespace Diga.WebView2.Interop
        COREWEBVIEW2_MOUSE_EVENT_KIND eventKind,
        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS virtualKeys,
        uint mouseData,
-       tagPOINT point);
+       POINT point);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         void SendPointerInput(

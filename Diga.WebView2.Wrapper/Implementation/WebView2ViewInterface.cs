@@ -477,7 +477,7 @@ namespace Diga.WebView2.Wrapper.Implementation
         }
 
         public COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT DefaultDownloadDialogCornerAlignment { get => this.WebView.GetDefaultDownloadDialogCornerAlignment(); set => this.WebView.SetDefaultDownloadDialogCornerAlignment(value); }
-        public tagPOINT DefaultDownloadDialogMargin { get => this.WebView.GetDefaultDownloadDialogMargin(); set => this.WebView.SetDefaultDownloadDialogMargin(value); }
+        public POINT DefaultDownloadDialogMargin { get => this.WebView.GetDefaultDownloadDialogMargin(); set => this.WebView.SetDefaultDownloadDialogMargin(value); }
     }
 
     public class WebView2View8Interface : WebView2View7Interface

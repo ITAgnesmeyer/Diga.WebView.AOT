@@ -36,34 +36,34 @@ namespace Diga.WebView2.Interop
         void SetPointerFlags(uint value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagRECT GetPointerDeviceRect();
+        RECT GetPointerDeviceRect();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetPointerDeviceRect(tagRECT value);
+        void SetPointerDeviceRect(RECT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagRECT GetDisplayRect();
+        RECT GetDisplayRect();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetDisplayRect(tagRECT value);
+        void SetDisplayRect(RECT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetPixelLocation();
+        POINT GetPixelLocation();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetPixelLocation(tagPOINT value);
+        void SetPixelLocation(POINT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetHimetricLocation();
+        POINT GetHimetricLocation();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetHimetricLocation(tagPOINT value);
+        void SetHimetricLocation(POINT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetPixelLocationRaw();
+        POINT GetPixelLocationRaw();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetPixelLocationRaw(tagPOINT value);
+        void SetPixelLocationRaw(POINT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetHimetricLocationRaw();
+        POINT GetHimetricLocationRaw();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetHimetricLocationRaw(tagPOINT value);
+        void SetHimetricLocationRaw(POINT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         uint GetTime();
@@ -136,14 +136,14 @@ namespace Diga.WebView2.Interop
         void SetTouchMask(uint value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagRECT GetTouchContact();
+        RECT GetTouchContact();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetTouchContact(tagRECT value);
+        void SetTouchContact(RECT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagRECT GetTouchContactRaw();
+        RECT GetTouchContactRaw();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetTouchContactRaw(tagRECT value);
+        void SetTouchContactRaw(RECT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         uint GetTouchOrientation();

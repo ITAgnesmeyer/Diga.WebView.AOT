@@ -44,7 +44,7 @@ namespace Diga.WebView2.Wrapper
             //settings.SetAreDefaultContextMenusEnabled((CBOOL)true);
             //settings.SetIsWebMessageEnabled((CBOOL)true);
 
-            tagRECT rect;
+            RECT rect;
             Native.GetClientRect(createdController.GetParentWindow(), out rect);
             controller.SetBounds( rect);
             OnControllerCompleted(new ControllerCompletedArgs(controller, webView));

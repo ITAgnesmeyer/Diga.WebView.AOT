@@ -24,7 +24,7 @@ namespace Diga.WebView2.Interop
         ICoreWebView2ContextMenuTarget GetContextMenuTarget();
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetLocation();
+        POINT GetLocation();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         int GetSelectedCommandId();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]

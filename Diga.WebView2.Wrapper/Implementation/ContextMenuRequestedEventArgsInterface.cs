@@ -37,7 +37,7 @@ namespace Diga.WebView2.Wrapper.Implementation
 
         public ICoreWebView2ContextMenuTarget ContextMenuTarget => Args.GetContextMenuTarget();
 
-        public tagPOINT Location => Args.GetLocation();
+        public POINT Location => Args.GetLocation();
 
         public int SelectedCommandId { get => Args.GetSelectedCommandId(); set => Args.SetSelectedCommandId(value); }
         public int Handled { get => Args.GetHandled(); set => Args.SetHandled(value); }

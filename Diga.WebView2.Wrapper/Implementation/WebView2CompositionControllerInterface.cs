@@ -79,7 +79,7 @@ namespace Diga.WebView2.Wrapper.Implementation
 
         public object RootVisualTarget { get => Controller.GetRootVisualTarget(); set => Controller.SetRootVisualTarget(value); }
 
-        public void SendMouseInput([In] COREWEBVIEW2_MOUSE_EVENT_KIND eventKind, [In] COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS virtualKeys, [In] uint mouseData, [In] tagPOINT point)
+        public void SendMouseInput([In] COREWEBVIEW2_MOUSE_EVENT_KIND eventKind, [In] COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS virtualKeys, [In] uint mouseData, [In] POINT point)
         {
             Controller.SendMouseInput(eventKind, virtualKeys, mouseData, point);
         }

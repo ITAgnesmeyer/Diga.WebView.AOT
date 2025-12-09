@@ -11,7 +11,7 @@ namespace Diga.WebView2.Interop
 
 
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
-  public struct tagPOINT
+  public struct POINT
   {
     public int x;
     public int y;

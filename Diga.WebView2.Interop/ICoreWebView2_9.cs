@@ -39,8 +39,8 @@ namespace Diga.WebView2.Interop
         void SetDefaultDownloadDialogCornerAlignment(COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagPOINT GetDefaultDownloadDialogMargin();
+        POINT GetDefaultDownloadDialogMargin();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetDefaultDownloadDialogMargin(tagPOINT value);
+        void SetDefaultDownloadDialogMargin(POINT value);
     }
 }

@@ -48,7 +48,7 @@ namespace Diga.WebView2.Wrapper
        
         [DllImport("user32.dll", EntryPoint = "GetClientRect")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool GetClientRect([In] IntPtr hWnd, [Out] out tagRECT lpRect);
+        public static extern bool GetClientRect([In] IntPtr hWnd, [Out] out RECT lpRect);
 
         [LibraryImport(EXTERNAL_DLL, EntryPoint = "CreateEnvironmentOptions",StringMarshalling = StringMarshalling.Utf16)]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]

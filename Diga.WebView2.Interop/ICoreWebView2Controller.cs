@@ -22,9 +22,9 @@ namespace Diga.WebView2.Interop
         void SetIsVisible(int value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        tagRECT GetBounds();
+        RECT GetBounds();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetBounds(tagRECT value);
+        void SetBounds(RECT value);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         double GetZoomFactor();
@@ -39,7 +39,7 @@ namespace Diga.WebView2.Interop
         void remove_ZoomFactorChanged(EventRegistrationToken token);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetBoundsAndZoomFactor(tagRECT Bounds, double ZoomFactor);
+        void SetBoundsAndZoomFactor(RECT Bounds, double ZoomFactor);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         void MoveFocus(COREWEBVIEW2_MOVE_FOCUS_REASON reason);

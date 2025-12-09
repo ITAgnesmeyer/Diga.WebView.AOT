@@ -18,15 +18,15 @@ namespace Diga.WebView2.Interop
     {
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint DragEnter([MarshalAs(UnmanagedType.Interface)] IDataObject dataObject, uint keyState, tagPOINT point);
+        uint DragEnter([MarshalAs(UnmanagedType.Interface)] IDataObject dataObject, uint keyState, POINT point);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         void DragLeave();
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint DragOver(uint keyState, tagPOINT point);
+        uint DragOver(uint keyState, POINT point);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint Drop([MarshalAs(UnmanagedType.Interface)] IDataObject dataObject, uint keyState, tagPOINT point);
+        uint Drop([MarshalAs(UnmanagedType.Interface)] IDataObject dataObject, uint keyState, POINT point);
     }
 }
