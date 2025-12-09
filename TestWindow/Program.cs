@@ -1,4 +1,5 @@
 ﻿using CoreWindowsWrapper;
+using System.Diagnostics;
 using System.Resources;
 
 namespace TestWindow
@@ -9,6 +10,8 @@ namespace TestWindow
         [STAThread]
         static void Main(string[] args)
         {
+            
+
             string url = string.Empty;
             bool rel = false;
             if(args.Length > 0)
