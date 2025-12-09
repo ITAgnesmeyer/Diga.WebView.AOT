@@ -16,13 +16,13 @@ namespace TestWindow
 
     public class RpcData
     {
-        public string Name { get; set; }
-        public string Value { get; set; }
+        public string? Name { get; set; }
+        public string? Value { get; set; }
     }
     public class Rpc
     {
         public Guid id { get; set; }
-        public string bufferType { get; set; }
+        public string? bufferType { get; set; }
 
         public List<RpcData> data { get; set; } = new List<RpcData>();
 
@@ -49,9 +49,9 @@ namespace TestWindow
     class BrowserWindow : NativeWindow
     {
 
-        public event EventHandler<WebViewCreateEventArgs> WebViewCreate;
-        private NativeTimer _Timer;
-        private NativeWebBrowser _Browser;
+        public event EventHandler<WebViewCreateEventArgs>? WebViewCreate;
+        private NativeTimer? _Timer;
+        private NativeWebBrowser? _Browser;
         protected override void InitControls()
         {
             base.InitControls();
@@ -98,7 +98,7 @@ namespace TestWindow
 
         }
 
-        private void WebView1_ServerCertificateErrorDetected(object sender, ServerCertificateErrorDetectedEventArgs e)
+        private void WebView1_ServerCertificateErrorDetected(object? sender, ServerCertificateErrorDetectedEventArgs e)
         {
             if (e.ServerCertificate.Issuer == Program.ServerPrivateCertAllow)
             {
@@ -107,7 +107,7 @@ namespace TestWindow
             }
         }
 
-        private void WebView1_DownloadStarting(object sender, DownloadStartingEventArgs e)
+        private void WebView1_DownloadStarting(object? sender, DownloadStartingEventArgs e)
         {
             var opt = e.DownloadOperation;
             opt.BytesReceivedChanged += Opt_BytesReceivedChanged;
@@ -115,7 +115,7 @@ namespace TestWindow
             opt.StateChanged += Opt_StateChanged;
         }
 
-        private void Opt_StateChanged(object sender, WebView2EventArgs e)
+        private void Opt_StateChanged(object? sender, WebView2EventArgs e)
         {
             if (sender is WebView2DownloadOperation opt)
             {
@@ -123,7 +123,7 @@ namespace TestWindow
             }
         }
 
-        private void Opt_EstimatedEndTimeChanged(object sender, WebView2EventArgs e)
+        private void Opt_EstimatedEndTimeChanged(object? sender, WebView2EventArgs e)
         {
             if (sender is WebView2DownloadOperation opt)
             {
@@ -132,7 +132,7 @@ namespace TestWindow
             }
         }
 
-        private void Opt_BytesReceivedChanged(object sender, WebView2EventArgs e)
+        private void Opt_BytesReceivedChanged(object? sender, WebView2EventArgs e)
         {
             if (sender is WebView2DownloadOperation opt)
             {
@@ -143,7 +143,7 @@ namespace TestWindow
         private bool IsTickRunning = false;
         private bool DoSendMessage = false;
         private string MessageToSend = string.Empty;
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object? sender, EventArgs e)
         {
 
             if (IsTickRunning)
@@ -167,7 +167,7 @@ namespace TestWindow
             IsTickRunning = false;
         }
 
-        private void webView1_WebMessageReceived(object sender, WebMessageReceivedEventArgs e)
+        private void webView1_WebMessageReceived(object? sender, WebMessageReceivedEventArgs e)
         {
 
             string message = e.TryGetWebMessageAsString();
@@ -195,7 +195,7 @@ namespace TestWindow
             //";
 
             //            JsonNode node = JsonNode.Parse(data);
-
+            if(this._Browser == null)    return;
             Rpc rpc = new Rpc();
             rpc.id = Guid.NewGuid();
             rpc.bufferType = "bufferType1";
@@ -217,7 +217,7 @@ namespace TestWindow
         private const uint NoneExStyle = 327680;
         private uint OldStyle;
         private uint OldExStyle;
-        private void webView1_AcceleratorKeyPressed(object sender, AcceleratorKeyPressedEventArgs e)
+        private void webView1_AcceleratorKeyPressed(object? sender, AcceleratorKeyPressedEventArgs e)
         {
             uint currentStyle = GetWindowStyle();
             uint currentExStyle = GetWindowExStyle();
@@ -257,9 +257,10 @@ namespace TestWindow
             }
         }
 
-        private void webView1_Created(object sender, EventArgs e)
+        private void webView1_Created(object? sender, EventArgs e)
         {
-
+            if(_Browser == null)    return;
+            if(_Timer == null)      return;
             this._Browser.OpenDefaultDownloadDialog();
             WebViewCreateEventArgs args = new WebViewCreateEventArgs(this._Browser.Url, this._Browser.MonitoringUrl);
             WebViewCreate?.Invoke(this, args);
@@ -270,7 +271,7 @@ namespace TestWindow
             this._Timer.StartTimer();
         }
 
-        private void webView1_NavigationStart(object sender, NavigationStartingEventArgs e)
+        private void webView1_NavigationStart(object? sender, NavigationStartingEventArgs e)
         {
             //IntPtr h = Diga.Core.Api.Win32.User32.GetDlgItem(this.Handle, 100);
             //if (h != IntPtr.Zero)
@@ -280,12 +281,12 @@ namespace TestWindow
 
         }
 
-        private void webView1_NavigationCompleted(object sender, NavigationCompletedEventArgs e)
+        private void webView1_NavigationCompleted(object? sender, NavigationCompletedEventArgs e)
         {
             //
         }
 
-        private void webView1_WebResouceRequested(object sender, WebResourceRequestedEventArgs e)
+        private void webView1_WebResouceRequested(object? sender, WebResourceRequestedEventArgs e)
         {
             //IntPtr h = Diga.Core.Api.Win32.User32.GetDlgItem(this.Handle, 100);
             //if (h != IntPtr.Zero)
