@@ -10,20 +10,24 @@ namespace Diga.WebView2.Wrapper
             EXTERNAL_DLL = "lib\\Diga.WebView2.Native.dll";
 
 
-        [DllImport(EXTERNAL_DLL, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ShowInfo();
+        [LibraryImport(EXTERNAL_DLL, StringMarshalling = StringMarshalling.Utf16)]
+        [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
+        public static partial int ShowInfo();
 
-        [DllImport(EXTERNAL_DLL, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern int CompareVersion(
-            [In, MarshalAs(UnmanagedType.LPWStr)] string version1,
-            [In, MarshalAs(UnmanagedType.LPWStr)] string version2,
+        //[DllImport(EXTERNAL_DLL, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode, SetLastError = true)]
+        
+        [LibraryImport(EXTERNAL_DLL, StringMarshalling = StringMarshalling.Utf16)]
+        [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
+        public static partial int CompareVersion(
+            [MarshalAs(UnmanagedType.LPWStr)] string version1,
+            [MarshalAs(UnmanagedType.LPWStr)] string version2,
             out int result);
 
         //[DllImport(EXTERNAL_DLL, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode,
         //    SetLastError = true)]
         [LibraryImport(EXTERNAL_DLL,StringMarshalling = StringMarshalling.Utf16)]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
-        public unsafe static partial  int GetAvailableVersion(
+        public static partial  int GetAvailableVersion(
             [MarshalAs(UnmanagedType.LPWStr)] string browserExecutableFolder,
             [MarshalAs(UnmanagedType.LPWStr)] out string versionInfo);
 
