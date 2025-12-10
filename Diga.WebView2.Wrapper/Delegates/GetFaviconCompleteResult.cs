@@ -1,8 +1,6 @@
-﻿
+﻿using Diga.WebView2.Interop;
 
-using Diga.WebView2.Interop;
-
-namespace Diga.WebView2.Wrapper
+namespace Diga.WebView2.Wrapper.Delegates
 {
     public class GetFaviconCompleteResult
     {

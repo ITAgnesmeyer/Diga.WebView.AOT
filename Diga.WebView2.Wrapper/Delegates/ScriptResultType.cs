@@ -1,4 +1,4 @@
-﻿namespace Diga.WebView2.Wrapper
+﻿namespace Diga.WebView2.Wrapper.Delegates
 {
     public struct ScriptResultType
     {

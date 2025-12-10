@@ -1,5 +1,5 @@
 ﻿using Diga.WebView2.Interop;
-using Diga.WebView2.Wrapper.Implementation;
+using Diga.WebView2.Wrapper.shim;
 using System.Diagnostics;
 
 namespace Diga.WebView2.Wrapper.EventArguments

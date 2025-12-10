@@ -1,7 +1,5 @@
 ﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.EventArguments;
-using Diga.WebView2.Wrapper.Types;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 

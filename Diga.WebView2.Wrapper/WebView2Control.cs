@@ -1,5 +1,4 @@
-﻿using Diga.Core.Api.Win32.Com;
-using Diga.WebView2.Interop;
+﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.EventArguments;
 using Diga.WebView2.Wrapper.Types;
 using System.Runtime.InteropServices;

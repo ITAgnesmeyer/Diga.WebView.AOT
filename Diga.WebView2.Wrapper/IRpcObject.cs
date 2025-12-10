@@ -1,12 +1,6 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
-using System.Runtime.InteropServices.ComTypes;
 using System.Diagnostics;
-using System.ComponentModel;
-using System.Collections.Concurrent;
-using Diga.WebView2.Interop;
 
 
 namespace Diga.WebView2.Wrapper

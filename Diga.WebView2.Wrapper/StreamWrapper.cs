@@ -1,11 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 using System.Runtime.InteropServices.Marshalling;
 using System.Security;
-using System.Threading.Tasks;
 using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.Types;
 using Microsoft.Win32.SafeHandles;

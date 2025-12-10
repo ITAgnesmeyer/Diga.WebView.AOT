@@ -1,11 +1,10 @@
 ﻿using Diga.WebView2.Interop;
+using Diga.WebView2.Wrapper.Delegates;
 using Diga.WebView2.Wrapper.EventArguments;
-using Diga.WebView2.Wrapper.Implementation;
+using Diga.WebView2.Wrapper.shim;
 using Diga.WebView2.Wrapper.Types;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
 
 namespace Diga.WebView2.Wrapper
 {

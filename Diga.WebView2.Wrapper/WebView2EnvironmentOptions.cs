@@ -1,9 +1,6 @@
 ﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.Types;
-using Microsoft.Win32.SafeHandles;
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 

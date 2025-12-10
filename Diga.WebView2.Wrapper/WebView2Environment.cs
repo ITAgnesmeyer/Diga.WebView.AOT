@@ -1,6 +1,6 @@
 ﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.EventArguments;
-using Diga.WebView2.Wrapper.Implementation;
+using Diga.WebView2.Wrapper.shim;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using System.Security;

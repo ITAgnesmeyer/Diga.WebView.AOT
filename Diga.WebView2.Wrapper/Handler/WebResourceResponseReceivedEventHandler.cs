@@ -1,9 +1,7 @@
 ﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.EventArguments;
 using System.Diagnostics;
-using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices.Marshalling;
-using System.Security;
 
 namespace Diga.WebView2.Wrapper
 {
