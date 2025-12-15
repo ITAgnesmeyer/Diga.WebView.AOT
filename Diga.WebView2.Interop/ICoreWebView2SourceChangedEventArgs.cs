@@ -1,21 +1,15 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Diga.WebView2.Interop.ICoreWebView2SourceChangedEventArgs
-// Assembly: Diga.WebView2.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1E8B0323-528E-4C9C-8FF8-A486637C87E1
-// Assembly location: O:\webview2\V1096133\Diga.WebView2.Interop.dll
-
-using System.Runtime.CompilerServices;
+using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
-namespace Diga.WebView2.Interop
+namespace Diga.WebView2.Interop;
+
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("31e0e545-1dba-4266-8914-f63848a1f7d7")]
+[GeneratedComInterface]
+public partial interface ICoreWebView2SourceChangedEventArgs
 {
-  [Guid("31E0E545-1DBA-4266-8914-F63848A1F7D7")]
-  [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-  [GeneratedComInterface]
-  public partial interface ICoreWebView2SourceChangedEventArgs
-  {
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetIsNewDocument();
-    }
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetIsNewDocument();
+
 }

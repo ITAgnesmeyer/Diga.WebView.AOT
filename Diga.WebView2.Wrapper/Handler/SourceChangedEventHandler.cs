@@ -16,10 +16,10 @@ namespace Diga.WebView2.Wrapper
         {
             try
             {
-                int isNew = args.GetIsNewDocument();
-                CBOOL b = isNew;
+                bool isNew = args.GetIsNewDocument();
+                
                 string url = webview.GetSource();
-                OnSourceChanged(new SourceChangedEventArgs(b));
+                OnSourceChanged(new SourceChangedEventArgs(isNew,url));
             }
             catch (Exception ex)
             {

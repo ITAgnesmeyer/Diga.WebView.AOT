@@ -1,48 +1,38 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Diga.WebView2.Interop.ICoreWebView2WindowFeatures
-// Assembly: Diga.WebView2.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1E8B0323-528E-4C9C-8FF8-A486637C87E1
-// Assembly location: O:\webview2\V1096133\Diga.WebView2.Interop.dll
-
-using System.Runtime.CompilerServices;
+using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
-namespace Diga.WebView2.Interop
+namespace Diga.WebView2.Interop;
+
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("5eaf559f-b46e-4397-8860-e422f287ff1e")]
+[GeneratedComInterface]
+public partial interface ICoreWebView2WindowFeatures
 {
-  [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-  [Guid("5EAF559F-B46E-4397-8860-E422F287FF1E")]
-  [GeneratedComInterface]
-  public partial interface ICoreWebView2WindowFeatures
-  {
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetHasPosition();
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetHasPosition();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetHasSize();
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetHasSize();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint Getleft();
+    uint GetLeft();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint Gettop();
+    uint GetTop();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint GetHeight();
+    uint GetHeight();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        uint GetWidth();
+    uint GetWidth();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetShouldDisplayMenuBar();
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetShouldDisplayMenuBar();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetShouldDisplayStatus();
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetShouldDisplayStatus();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetShouldDisplayToolbar();
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetShouldDisplayToolbar();
 
-        //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GetShouldDisplayScrollBars();
-    }
+    [return: MarshalAs(UnmanagedType.Bool)]
+    bool GetShouldDisplayScrollBars();
+
 }

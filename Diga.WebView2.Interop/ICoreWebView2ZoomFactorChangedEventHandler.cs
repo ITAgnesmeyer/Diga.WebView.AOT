@@ -1,21 +1,14 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Diga.WebView2.Interop.ICoreWebView2ZoomFactorChangedEventHandler
-// Assembly: Diga.WebView2.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1E8B0323-528E-4C9C-8FF8-A486637C87E1
-// Assembly location: O:\webview2\V1096133\Diga.WebView2.Interop.dll
-
-using System.Runtime.CompilerServices;
+using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
-namespace Diga.WebView2.Interop
+namespace Diga.WebView2.Interop;
+
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("b52d71d6-c4df-4543-a90c-64a3e60f38cb")]
+[GeneratedComInterface]
+public partial interface ICoreWebView2ZoomFactorChangedEventHandler
 {
-  [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-  [Guid("B52D71D6-C4DF-4543-A90C-64A3E60F38CB")]
-  [GeneratedComInterface]
-  public partial interface ICoreWebView2ZoomFactorChangedEventHandler
-  {
-    //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
     void Invoke([MarshalAs(UnmanagedType.Interface)] ICoreWebView2Controller sender, [MarshalAs(UnmanagedType.Interface)] object args);
-  }
+
 }

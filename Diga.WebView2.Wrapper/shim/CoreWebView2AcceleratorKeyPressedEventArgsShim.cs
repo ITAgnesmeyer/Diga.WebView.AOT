@@ -1,44 +1,125 @@
-﻿using Diga.WebView2.Interop;
-using Diga.WebView2.Wrapper.Types;
+using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
+using Diga.WebView2.Interop;
+using Diga.WebView2.Wrapper.Types;
 
 namespace Diga.WebView2.Wrapper.shim
 {
-
-
-
-
-    public class CoreWebView2AcceleratorKeyPressedEventArgsShim //: ICoreWebView2AcceleratorKeyPressedEventArgs
+    /// <summary>
+    /// Shim-Wrapper für ICoreWebView2AcceleratorKeyPressedEventArgs
+    /// </summary>
+    public class CoreWebView2AcceleratorKeyPressedEventArgsShim : EventArgs, IDisposable
     {
-        private ComObjectHolder<ICoreWebView2AcceleratorKeyPressedEventArgs> _Args;
-        private ICoreWebView2AcceleratorKeyPressedEventArgs Args
+        private ComObjectHolder<ICoreWebView2AcceleratorKeyPressedEventArgs> _Iface;
+        private bool disposedValue;
+        private SafeHandle handle = new SafeFileHandle(nint.Zero, true);
+
+        /// <summary>
+        /// Gets the wrapped COM interface.
+        /// </summary>
+        private ICoreWebView2AcceleratorKeyPressedEventArgs Iface
         {
             get
             {
-                if (_Args == null)
+                if (_Iface == null)
                 {
-                    Debug.Print(nameof(CoreWebView2AcceleratorKeyPressedEventArgsShim) + "=>" + nameof(Args) + " is null");
-
-                    throw new InvalidOperationException(nameof(CoreWebView2AcceleratorKeyPressedEventArgsShim) + "=>" + nameof(Args) + " is null");
+                    Debug.Print(nameof(CoreWebView2AcceleratorKeyPressedEventArgsShim) + " Iface is null");
+                    throw new InvalidOperationException(nameof(CoreWebView2AcceleratorKeyPressedEventArgsShim) + " Iface is null");
                 }
-                return _Args.Interface;
+
+                return _Iface.Interface;
             }
-            set { _Args = new ComObjectHolder<ICoreWebView2AcceleratorKeyPressedEventArgs>(value); }
+            set => _Iface = new ComObjectHolder<ICoreWebView2AcceleratorKeyPressedEventArgs>(value);
         }
 
-        public CoreWebView2AcceleratorKeyPressedEventArgsShim(ICoreWebView2AcceleratorKeyPressedEventArgs args)
+        /// <summary>
+        /// Initializes a new instance of the CoreWebView2AcceleratorKeyPressedEventArgsShim class.
+        /// </summary>
+        /// <param name="iface">The COM interface to wrap</param>
+        public CoreWebView2AcceleratorKeyPressedEventArgsShim(ICoreWebView2AcceleratorKeyPressedEventArgs iface)
         {
-            this.Args =args ?? throw new ArgumentNullException(nameof(args));
+            Iface = iface;
         }
 
-        public COREWEBVIEW2_KEY_EVENT_KIND KeyEventKind => this.Args.GetKeyEventKind();
+        #region Properties
 
-        public uint VirtualKey => this.Args.GetVirtualKey();
+        /// <summary>
+        /// Gets the KeyEventKind property.
+        /// </summary>
+        public COREWEBVIEW2_KEY_EVENT_KIND KeyEventKind
+        {
+            get => Iface.GetKeyEventKind();
+        }
 
-        public int KeyEventLParam => this.Args.GetKeyEventLParam();
+        /// <summary>
+        /// Gets the VirtualKey property.
+        /// </summary>
+        public uint VirtualKey
+        {
+            get => Iface.GetVirtualKey();
+        }
 
-        public COREWEBVIEW2_PHYSICAL_KEY_STATUS PhysicalKeyStatus => this.Args.GetPhysicalKeyStatus();
+        /// <summary>
+        /// Gets the KeyEventLParam property.
+        /// </summary>
+        public int KeyEventLParam
+        {
+            get => Iface.GetKeyEventLParam();
+        }
 
-        public int Handled { get => this.Args.GetHandled(); set => this.Args.SetHandled(value); }
+        /// <summary>
+        /// Gets the PhysicalKeyStatus property.
+        /// </summary>
+        public COREWEBVIEW2_PHYSICAL_KEY_STATUS PhysicalKeyStatus
+        {
+            get => Iface.GetPhysicalKeyStatus();
+        }
+
+        /// <summary>
+        /// Gets the Handled property.
+        /// </summary>
+        public bool Handled
+        {
+            get => Iface.GetHandled();
+            set => Iface.SetHandled(value);
+        }
+
+        #endregion
+
+
+        /// <summary>
+        /// Protected virtual dispose method.
+        /// </summary>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    handle?.Dispose();
+                    _Iface = null;
+                }
+                disposedValue = true;
+            }
+        }
+
+        /// <summary>
+        /// Disposes the shim class and releases the COM object.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Finalizer for fallback cleanup.
+        /// </summary>
+        ~CoreWebView2AcceleratorKeyPressedEventArgsShim()
+        {
+            Dispose(disposing: false);
+        }
     }
 }

@@ -3,12 +3,14 @@
 
     public class SourceChangedEventArgs : EventArgs
     {
-        public SourceChangedEventArgs(bool isNewDocument)
+        public SourceChangedEventArgs(bool isNewDocument, string url)
         {
             this.IsNewDocument = isNewDocument;
+            this.Url = url;
         }
 
         public bool IsNewDocument { get; }
+        public string Url { get; }
 
     }
 }
