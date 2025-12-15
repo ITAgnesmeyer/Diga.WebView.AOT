@@ -50,9 +50,22 @@ namespace Diga.WebView2.Wrapper
             [MarshalAs(UnmanagedType.Interface)] ICoreWebView2EnvironmentOptions   environmentOptions,
             [MarshalAs(UnmanagedType.Interface)] ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler environmentCreatedHandler);
        
-        [DllImport("user32.dll", EntryPoint = "GetClientRect")]
+        [LibraryImport("user32.dll", EntryPoint = "GetClientRect")]
+        [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool GetClientRect([In] IntPtr hWnd, [Out] out RECT lpRect);
+        private static unsafe partial bool GetClientRectNative(IntPtr hWnd, RECT* lpRect);
+
+        public static bool GetClientRect([In] IntPtr hWnd, [Out] out RECT lpRect)
+        {
+            unsafe
+            {
+                fixed (RECT* rectPtr = &lpRect)
+                {
+                    return GetClientRectNative(hWnd, rectPtr);
+                }
+            }
+        }
+
 
         [LibraryImport(EXTERNAL_DLL, EntryPoint = "CreateEnvironmentOptions",StringMarshalling = StringMarshalling.Utf16)]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
