@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2ExecuteScriptResult : WebView2ExecuteScriptResultInterface
+    public class WebView2ExecuteScriptResult : CoreWebView2ExecuteScriptResultShim
     {
         public WebView2ExecuteScriptResult(ICoreWebView2ExecuteScriptResult result) : base(result)
         {

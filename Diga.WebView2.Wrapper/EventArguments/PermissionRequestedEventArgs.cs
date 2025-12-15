@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class PermissionRequestedEventArgs : PermissionRequestedEventArgsInterface
+    public class PermissionRequestedEventArgs : CoreWebView2PermissionRequestedEventArgsShim
     {
 
 

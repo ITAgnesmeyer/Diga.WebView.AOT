@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2SharedBuffer : WebView2SharedBufferInteface
+    public class WebView2SharedBuffer : CoreWebView2SharedBufferShim
     {
         public WebView2SharedBuffer(ICoreWebView2SharedBuffer args) : base(args) { }
 

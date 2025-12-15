@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class WebResourceResponseReceivedEventArgs: WebResourceResponseReceivedEventArgsInterface
+    public class WebResourceResponseReceivedEventArgs: CoreWebView2WebResourceResponseReceivedEventArgsShim
     {
         public WebResourceResponseReceivedEventArgs(ICoreWebView2WebResourceResponseReceivedEventArgs args):base(args)
         {

@@ -8,7 +8,7 @@ using System.Security;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class WebView2Environment : WebView2Environment12Interface
+    public class WebView2Environment : CoreWebView2Environment12Shim
     {
         public event EventHandler<WebView2EventArgs> NewBrowserVersionAvailable;
         public event EventHandler<BrowserProcessExitedEventArgs> BrowserProcessExited;

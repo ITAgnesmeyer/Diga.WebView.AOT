@@ -10,7 +10,7 @@ namespace Diga.WebView2.Wrapper.EventArguments
 
 
 
-    public class ContextMenuRequestedEventArgs : ContextMenuRequestedEventArgsInterface
+    public class ContextMenuRequestedEventArgs : CoreWebView2ContextMenuRequestedEventArgsShim
     {
         //private object _obj;
 

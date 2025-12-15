@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class BasicAuthenticationRequestedEventArgs : BasicAuthenticationRequestedEventArgsInterface
+    public class BasicAuthenticationRequestedEventArgs : CoreWebView2BasicAuthenticationRequestedEventArgsShim
     {
         public BasicAuthenticationRequestedEventArgs(ICoreWebView2BasicAuthenticationRequestedEventArgs args) : base(args)
         {

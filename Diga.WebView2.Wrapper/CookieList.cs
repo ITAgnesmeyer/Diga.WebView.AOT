@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class CookieList: CookieListInterface
+    public class CookieList: CoreWebView2CookieListShim
     {
         public CookieList(ICoreWebView2CookieList args):base(args)
         {

@@ -4,7 +4,7 @@ using Diga.WebView2.Wrapper.shim;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class WebResourceRequest : WebResourceRequestInterface
+    public class WebResourceRequest : CoreWebView2WebResourceRequestShim
     {
         public WebResourceRequest(ICoreWebView2WebResourceRequest iface) : base(iface)
         {

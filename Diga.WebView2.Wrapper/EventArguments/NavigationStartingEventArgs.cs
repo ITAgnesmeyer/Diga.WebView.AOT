@@ -4,7 +4,7 @@ using Diga.WebView2.Wrapper.Types;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class NavigationStartingEventArgs : NavigationStartingEventArgsInterface3
+    public class NavigationStartingEventArgs : CoreWebView2NavigationStartingEventArgs3Shim
     {
 
         public NavigationStartingEventArgs(ICoreWebView2NavigationStartingEventArgs3 args) : base(args)

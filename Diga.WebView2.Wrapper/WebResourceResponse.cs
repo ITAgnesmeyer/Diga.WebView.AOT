@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebResourceResponse: WebResourceResponseInterface
+    public class WebResourceResponse: CoreWebView2WebResourceResponseShim
     {
         public WebResourceResponse(ICoreWebView2WebResourceResponse args):base(args)
         {

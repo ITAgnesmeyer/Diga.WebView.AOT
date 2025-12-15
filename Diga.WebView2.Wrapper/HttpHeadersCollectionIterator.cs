@@ -5,7 +5,7 @@ using System.Collections;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class HttpHeadersCollectionIterator : HttpHeadersCollectionIteratorInterface, IEnumerator, IEnumerable, IDisposable
+    public class HttpHeadersCollectionIterator : CoreWebView2HttpHeadersCollectionIteratorShim, IEnumerator, IEnumerable, IDisposable
     {
 
         public HttpHeadersCollectionIterator(ICoreWebView2HttpHeadersCollectionIterator iface) : base(iface)

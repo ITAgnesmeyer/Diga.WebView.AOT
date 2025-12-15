@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class HttpRequestHeaders : HttpRequestHeadersInterface
+    public class HttpRequestHeaders : CoreWebView2HttpRequestHeadersShim
     {
         public HttpRequestHeaders(ICoreWebView2HttpRequestHeaders iface):base(iface) 
         { 

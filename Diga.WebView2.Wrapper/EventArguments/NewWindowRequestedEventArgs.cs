@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class NewWindowRequestedEventArgs : NewWindowRequestedEventArgs2Interface
+    public class NewWindowRequestedEventArgs : CoreWebView2NewWindowRequestedEventArgs2Shim
     {
 
 

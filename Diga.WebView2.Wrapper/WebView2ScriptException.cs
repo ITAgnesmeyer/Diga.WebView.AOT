@@ -4,7 +4,7 @@ using Diga.WebView2.Wrapper.shim;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class WebView2ScriptException : WebView2ScriptExceptionInterface
+    public class WebView2ScriptException : CoreWebView2ScriptExceptionShim
     {
         public WebView2ScriptException(ICoreWebView2ScriptException exception) : base(exception)
         {

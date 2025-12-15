@@ -5,7 +5,7 @@ using Diga.WebView2.Wrapper.Types;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2PointerInfo : WebView2PointerInfoInterface
+    public class WebView2PointerInfo : CoreWebView2PointerInfoShim
     {
         public WebView2PointerInfo(ICoreWebView2PointerInfo iface) : base(iface)
         {

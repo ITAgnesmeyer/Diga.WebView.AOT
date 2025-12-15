@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2DownloadOperation : WebView2DownloadOperationInterface
+    public class WebView2DownloadOperation : CoreWebView2DownloadOperationShim
     {
         private bool disposedValue;
         private EventRegistrationToken _BytesReceivedChangedToken;

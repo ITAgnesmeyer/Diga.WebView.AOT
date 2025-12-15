@@ -5,7 +5,7 @@ using Diga.WebView2.Wrapper.Types;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class ContextMenuTarget : ContextMenuTargetInterface
+    public class ContextMenuTarget : CoreWebView2ContextMenuTargetShim
     {
         public ContextMenuTarget(ICoreWebView2ContextMenuTarget args) : base(args)
         {

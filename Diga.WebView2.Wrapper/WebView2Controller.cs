@@ -8,7 +8,7 @@ using System.Security;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2Controller : WebView2Controller4Interface
+    public class WebView2Controller : CoreWebView2Controller4Shim
     {
         private EventRegistrationToken _ZoomFactorChangedToken;
         private EventRegistrationToken _GotFocusToken;

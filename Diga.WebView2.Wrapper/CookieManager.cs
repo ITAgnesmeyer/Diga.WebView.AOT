@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class CookieManager: CookieManagerInterface
+    public class CookieManager: CoreWebView2CookieManagerShim
     {
         public CookieManager(ICoreWebView2CookieManager args):base(args)
         {

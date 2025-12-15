@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2ContextMenuItem:WebView2ContextMenuItemInterface
+    public class WebView2ContextMenuItem:CoreWebView2ContextMenuItemShim
     {
         public event EventHandler<WebView2ContextMenuItem> CustomItemSelected;
         private EventRegistrationToken _CustomItemSelectedToken;

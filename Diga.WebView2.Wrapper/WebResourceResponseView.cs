@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebResourceResponseView: WebResourceResponseViewInterface
+    public class WebResourceResponseView: CoreWebView2WebResourceResponseViewShim
     {
         public WebResourceResponseView(ICoreWebView2WebResourceResponseView args):base(args)
         {

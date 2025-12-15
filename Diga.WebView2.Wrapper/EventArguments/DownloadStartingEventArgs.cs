@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class DownloadStartingEventArgs : DownloadStartingEventArgsInterface
+    public class DownloadStartingEventArgs : CoreWebView2DownloadStartingEventArgsShim
     {
         public DownloadStartingEventArgs(ICoreWebView2DownloadStartingEventArgs args) : base(args)
         {

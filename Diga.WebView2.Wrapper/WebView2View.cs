@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 namespace Diga.WebView2.Wrapper
 {
 
-    public class WebView2View : WebView2View21Interface
+    public class WebView2View : CoreWebView2_21Shim
     {
         public event EventHandler<NavigationStartingEventArgs> NavigationStarting;
         public event EventHandler<ContentLoadingEventArgs> ContentLoading;

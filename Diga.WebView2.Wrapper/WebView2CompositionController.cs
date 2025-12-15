@@ -7,7 +7,7 @@ using System.Security;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class WebView2CompositionController : WebView2CompositionController2Interface
+    public class WebView2CompositionController : CoreWebView2CompositionController2Shim
     {
         public event EventHandler<CursorChangedEventArgs> CursorChanged;
 

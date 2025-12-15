@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class ServerCertificateErrorDetectedEventArgs : ServerCertificateErrorDetectedEventArgsInterface
+    public class ServerCertificateErrorDetectedEventArgs : CoreWebView2ServerCertificateErrorDetectedEventArgsShim
     {
         public ServerCertificateErrorDetectedEventArgs(ICoreWebView2ServerCertificateErrorDetectedEventArgs args) : base(args)
         {

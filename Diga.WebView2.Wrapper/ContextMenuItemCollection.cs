@@ -3,7 +3,7 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper
 {
-    public class ContextMenuItemCollection : ContextMenuItemCollectionInterface
+    public class ContextMenuItemCollection : CoreWebView2ContextMenuItemCollectionShim
     {
 
         public ContextMenuItemCollection(ICoreWebView2ContextMenuItemCollection args) : base(args)

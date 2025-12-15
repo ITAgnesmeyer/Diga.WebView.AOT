@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace Diga.WebView2.Wrapper.EventArguments
 {
 
-    public class WebMessageReceivedEventArgs: WebMessageReceivedEventArgs2Intefrace
+    public class WebMessageReceivedEventArgs: CoreWebView2WebMessageReceivedEventArgs2Shim
     {
         public WebMessageReceivedEventArgs(ICoreWebView2WebMessageReceivedEventArgs2 args):base(args)
         {

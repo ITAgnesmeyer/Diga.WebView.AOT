@@ -4,7 +4,7 @@ using Diga.WebView2.Wrapper.Types;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class MoveFocusRequestedEventArgs: MoveFocusRequestedEventArgsInterface
+    public class MoveFocusRequestedEventArgs: CoreWebView2MoveFocusRequestedEventArgsShim
     {
         public MoveFocusRequestedEventArgs(ICoreWebView2MoveFocusRequestedEventArgs args):base(args)
         {
