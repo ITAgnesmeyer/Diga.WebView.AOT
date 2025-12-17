@@ -6,12 +6,10 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-	  <!--Don't forget to disable while Developing!-->
-	  <PublishAot>true</PublishAot>
-	  <!--Don't forget to disable while Developing!-->
-	  <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
-	  
-	  
+	<!--Don't forget to disable while Developing!-->
+	<PublishAot>true</PublishAot>
+	<!--Don't forget to disable while Developing!-->
+	<_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
 	  
   </PropertyGroup>
 
@@ -21,17 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\TestWindow\lib\Diga.WebView2.Native.dll" Link="lib\Diga.WebView2.Native.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="10.0.0" />
   </ItemGroup>
 
 </Project>
