@@ -74,7 +74,11 @@ namespace Diga.WebView2.Wrapper
 
         [LibraryImport(EXTERNAL_DLL, EntryPoint = "GetIDispatchVariant", StringMarshalling = StringMarshalling.Utf16)]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
-        public static partial int GetIDispatchVariant([MarshalAs(UnmanagedType.Interface)] object obj, nint varaint);
+        public static partial int GetIDispatchVariant([MarshalAs(UnmanagedType.Interface)] in object obj, nint varaint);
+
+        [LibraryImport(EXTERNAL_DLL)]
+        [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvStdcall) })]
+        public static partial int CreateHostDispatchWrapper( out nint @object);
 
 
     }

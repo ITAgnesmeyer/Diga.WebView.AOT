@@ -11,39 +11,6 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace Diga.WebView2.Interop
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public struct DISPPARAMS
-    {
-        public IntPtr rgvarg;
-        public IntPtr rgdispidNamedArgs;
-        public int cArgs;
-        public int cNamedArgs;
-    }
-
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public struct EXCEPINFO
-    {
-        public short wCode;
-        public short wReserved;
-        [MarshalAs(UnmanagedType.BStr)] public string bstrSource;
-        [MarshalAs(UnmanagedType.BStr)] public string bstrDescription;
-        [MarshalAs(UnmanagedType.BStr)] public string bstrHelpFile;
-        public int dwHelpContext;
-        public IntPtr pvReserved;
-        public IntPtr pfnDeferredFillIn;
-        public int scode;
-    }
-
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    [Guid("00020400-0000-0000-C000-000000000046")]
-    [GeneratedComInterface]
-    public partial interface IDispatch
-    {
-        void GetTypeInfoCount(out int count);
-        void GetTypeInfo(int iTInfo, int lcid, out IntPtr info);
-        void GetIDsOfNames(ref Guid riid, IntPtr rgszNames, int cNames, int lcid, nint rgDispId);
-        void Invoke(int dispIdMember, ref Guid riid, int lcid, ushort wFlags, [MarshalAs(UnmanagedType.Interface)] ref DISPPARAMS pDispParams, [MarshalAs(UnmanagedType.Interface)] out object pVarResult, [MarshalAs(UnmanagedType.Interface)] ref EXCEPINFO pExcepInfo, out int puArgErr);
-    }
 
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     [Guid("0000000c-0000-0000-C000-000000000046")]

@@ -192,7 +192,7 @@ namespace Diga.WebView2.Interop
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         //void AddHostObjectToScript([MarshalAs(UnmanagedType.LPWStr)] string name, [In][MarshalAs(UnmanagedType.Interface)] ref object @object);
         //void AddHostObjectToScript([MarshalAs(UnmanagedType.LPWStr)] string name, [MarshalAs(UnmanagedType.Interface)] ref object @object);
-        void AddHostObjectToScript([MarshalAs(UnmanagedType.LPWStr)] string name, nint @object);
+        void AddHostObjectToScript([MarshalAs(UnmanagedType.LPWStr)] string name, ref VARIANT @object);
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         void RemoveHostObjectFromScript([MarshalAs(UnmanagedType.LPWStr)] string name);

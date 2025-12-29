@@ -256,7 +256,7 @@ namespace TestWindow
                 }
             }
         }
-
+        private IHostInvokeTarget? _TestObject;
         private void webView1_Created(object? sender, EventArgs e)
         {
             if(_Browser == null)    return;
@@ -269,6 +269,9 @@ namespace TestWindow
                 this._Browser.Url = args.Url;
             }
             this._Timer.StartTimer();
+            MyHostInvokeTarget myHostInvokeTarget = new MyHostInvokeTarget();
+            _TestObject = myHostInvokeTarget;
+            this._Browser.AddRemoteObject("testObject", myHostInvokeTarget);
         }
 
         private void webView1_NavigationStart(object? sender, NavigationStartingEventArgs e)

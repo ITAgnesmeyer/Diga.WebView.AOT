@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 
 namespace Diga.WebView2.Wrapper.shim
 {
+    
+
     public class CoreWebView2DeferralShim : IDisposable//,ICoreWebView2Deferral
     {
         //private ICoreWebView2Deferral _Deferral;

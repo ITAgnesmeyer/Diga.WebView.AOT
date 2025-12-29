@@ -730,15 +730,15 @@ namespace Diga.WebView2.Wrapper
             return result;
         }
 
-        public void AddRemoteObject(string name, object obj)
+        public void AddRemoteObject(string name, ref VARIANT obj)
         {
-            nint variant = Marshal.AllocCoTaskMem(24);
-            int result = Native.GetIDispatchVariant(obj, variant);
-            if (result != 0)
-                throw new InvalidOperationException("Failed to get IDispatch for object");
+            //nint variant = Marshal.AllocCoTaskMem(24);
+            //int result = Native.GetIDispatchVariant(obj, variant);
+            //if (result != 0)
+            //    throw new InvalidOperationException("Failed to get IDispatch for object");
 
-            base.AddHostObjectToScript(name,variant);
-            Marshal.FreeCoTaskMem(variant);
+            base.AddHostObjectToScript(name,ref obj);
+            //Marshal.FreeCoTaskMem(variant);
         }
 
         public void RemoveRemoteObject(string name)

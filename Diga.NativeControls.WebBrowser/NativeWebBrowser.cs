@@ -246,7 +246,16 @@ namespace Diga.NativeControls.WebBrowser
         private void WebWindowInitAction()
         {
             this.IsCreated = true;
-            //AddRemoteObject("RpcHandler", this._RpcHandler);
+            try
+            {
+                AddRemoteObject("RpcHandler", this._RpcHandler);
+            }
+            catch (Exception ex)
+            {
+
+                Debug.Print("AddRemoteObject RpcHandler failed:"+ex.Message);
+            }
+            
             AddScriptToExecuteOnDocumentCreated(
                "class ScriptErrorObject{constructor(e,t,r,n,i,c){this.name=e,this.message=t,this.fileName=r,this.lineNumber=n,this.columnNumber=i,this.stack=c}}window.external={sendMessage:function(e){window.chrome.webview.postMessage(e)},receiveMessage:function(e){window.chrome.webview.addEventListener(\"message\",(function(t){e(t.data)}))},evalScript:function(e){try{return eval(e)}catch(e){let t=new ScriptErrorObject(e.name,e.message,e.fileName,e.lineNumber,e.columnNumber,e.stack);return JSON.stringify(t)}},executeScript:function(e){try{return new Function(e)()}catch(e){let t=new ScriptErrorObject(e.name,e.message,e.fileName,e.lineNumber,e.columnNumber,e.stack);return JSON.stringify(t)}}};");
             AddScriptToExecuteOnDocumentCreated(

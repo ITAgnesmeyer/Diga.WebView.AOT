@@ -1,4 +1,5 @@
-﻿using Diga.WebView2.Interop;
+﻿using Diga.Core.Api.Win32;
+using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.Types;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -13,7 +14,10 @@ namespace Diga.WebView2.Wrapper
         ICoreWebView2EnvironmentOptions2 , 
         ICoreWebView2EnvironmentOptions3, 
         ICoreWebView2EnvironmentOptions4 , 
-        ICoreWebView2EnvironmentOptions5
+        ICoreWebView2EnvironmentOptions5,
+        ICoreWebView2EnvironmentOptions6,
+        ICoreWebView2EnvironmentOptions7,
+        ICoreWebView2EnvironmentOptions8
     {
         [return: MarshalAs(UnmanagedType.LPWStr)]
         public string GetAdditionalBrowserArguments()
@@ -142,6 +146,47 @@ namespace Diga.WebView2.Wrapper
             this.EnableTrackingPrevention = value;
         }
 
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public bool GetAreBrowserExtensionsEnabled()
+        {
+            return this.AreBrowserExtensionsEnabled;
+        }
+
+        public void SetAreBrowserExtensionsEnabled([MarshalAs(UnmanagedType.Bool)] bool value)
+        {
+            this.AreBrowserExtensionsEnabled = value;
+        }
+
+        public COREWEBVIEW2_CHANNEL_SEARCH_KIND GetChannelSearchKind()
+        {
+            return this.ChannelSearchKind;
+        }
+
+        public void SetChannelSearchKind(COREWEBVIEW2_CHANNEL_SEARCH_KIND value)
+        {
+            this.ChannelSearchKind = value;
+        }
+
+        public COREWEBVIEW2_RELEASE_CHANNELS GetReleaseChannels()
+        {
+            return this.ReleaseChannels;
+        }
+
+        public void SetReleaseChannels(COREWEBVIEW2_RELEASE_CHANNELS value)
+        {
+            this.ReleaseChannels = value;
+        }
+
+        public COREWEBVIEW2_SCROLLBAR_STYLE GetScrollBarStyle()
+        {
+            return this.ScrollBarStyle;
+        }
+
+        public void SetScrollBarStyle(COREWEBVIEW2_SCROLLBAR_STYLE value)
+        {
+            this.ScrollBarStyle = value;
+        }
+
         public WebView2EnvironmentOptions()
         {
             //this.AdditionalBrowserArguments = string.Empty;
@@ -153,6 +198,10 @@ namespace Diga.WebView2.Wrapper
             this.IsCustomCrashReportingEnabled = new CBOOL(false);
             this.EnableTrackingPrevention = new CBOOL(false);
             this.CustomSchemeRegistrations = new List<WebView2CustomSchemeRegistration>();
+            this.ScrollBarStyle = COREWEBVIEW2_SCROLLBAR_STYLE.COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT;
+            this.AreBrowserExtensionsEnabled = false;
+            this.ChannelSearchKind = COREWEBVIEW2_CHANNEL_SEARCH_KIND.COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE;
+            this.ReleaseChannels = COREWEBVIEW2_RELEASE_CHANNELS.COREWEBVIEW2_RELEASE_CHANNELS_NONE;
 
         }
 
@@ -163,6 +212,16 @@ namespace Diga.WebView2.Wrapper
         protected int ExclusiveUserDataFolderAccess { get; set; }
         protected int IsCustomCrashReportingEnabled { get; set; }
         protected int EnableTrackingPrevention { get; set; }
+
+        protected bool AreBrowserExtensionsEnabled { get; set; }
+
+        protected COREWEBVIEW2_CHANNEL_SEARCH_KIND ChannelSearchKind { get; set; }
+
+        protected COREWEBVIEW2_RELEASE_CHANNELS ReleaseChannels { get; set; }
+
+        protected COREWEBVIEW2_SCROLLBAR_STYLE ScrollBarStyle { get; set; }
+
+
         public List<WebView2CustomSchemeRegistration> CustomSchemeRegistrations { get; }
 
     }

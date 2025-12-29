@@ -51,7 +51,7 @@ namespace Diga.WebView2.Wrapper
             Marshal.FreeCoTaskMem((IntPtr)arrayPtr);
         }
 
-        public int IsMethodMember([MarshalAs(UnmanagedType.Interface)] ref object rawObject, [MarshalAs(UnmanagedType.LPWStr)] string memberName)
+        public unsafe int IsMethodMember([MarshalAs(UnmanagedType.Interface)] ref object rawObject, [MarshalAs(UnmanagedType.LPWStr)] string memberName)
         {
             try
             {
@@ -66,7 +66,8 @@ namespace Diga.WebView2.Wrapper
                 int result = Marshal.QueryInterface(dispatch, in guid, out var ppv);
                 nint strsPtr = ConvertStringArrayToNint(names);
                 nint dispIdsPtr = Marshal.UnsafeAddrOfPinnedArrayElement(dispIds, 0);
-                ((Interop.IDispatch)rawObject).GetIDsOfNames(ref guid, strsPtr, 1, 0, dispIdsPtr);
+                ((Interop.IDispatch)rawObject).GetIDsOfNames(guid,(char**) strsPtr, 1, 0, (int*)dispIdsPtr);
+                    
 
                 FreeStringArrayNint(strsPtr, names.Length);
                 return 1;

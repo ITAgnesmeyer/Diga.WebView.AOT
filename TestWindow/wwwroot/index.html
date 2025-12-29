@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function DoClick(e) {
+            console.log("DoClick aufgerufen");
+
+            console.log("hostObjects root keys:", Object.keys(chrome.webview.hostObjects));
+            console.log("sync root keys:", Object.keys(chrome.webview.hostObjects.sync));
+
+            chrome.webview.hostObjects.options.log = console.log.bind(console);
+            const result = chrome.webview.hostObjects.sync.testObject.add(1, 2);
+
+            console.log(result); // bei deinem Shim: ein Stri
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DoClick()">Test</button>
+</body>
+</html>

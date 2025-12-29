@@ -1,7 +1,9 @@
 ﻿using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.EventArguments;
+using Diga.WebView2.Wrapper.shim;
 using Diga.WebView2.Wrapper.Types;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Marshalling;
 
 
 namespace Diga.WebView2.Wrapper
@@ -359,8 +361,8 @@ namespace Diga.WebView2.Wrapper
 
             if (wwIterface is ICoreWebView2Staging staging)
             {
-                StagingHostHelper statingHostHelper = new StagingHostHelper();
-                staging.AddHostObjectHelper(statingHostHelper);
+                //StagingHostHelper statingHostHelper = new StagingHostHelper();
+                //staging.AddHostObjectHelper(statingHostHelper);
 
             }
             OnCreated();
@@ -873,25 +875,62 @@ namespace Diga.WebView2.Wrapper
         {
             return await this.WebView.ExecuteScriptWithResultAsync(javaScript);
         }
-
+        
         public void AddRemoteObject(string name, object obj)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("Name cannot be empty");
             if(this._RemoteObjects.ContainsKey(name))
                 throw new ArgumentException("Name already exists");
+            IHostInvokeTarget mHostInvokeTargg = obj as IHostInvokeTarget;
 
-            object localObject = obj;
+            if (mHostInvokeTargg == null )
+            {
+                throw new ArgumentException("Object must implement IHostInvokeTarget");
+            }
+
+            HRESULT hr = Native.CreateHostDispatchWrapper(out nint pHostWrapper);
+
+            if(hr.Failed)
+                throw new Exception("Could not create HostDispatchWrapper");
+
+
+            var cw = new StrategyBasedComWrappers();
+
+            IHostWrapper hostWrapper = (IHostWrapper)cw.GetOrCreateObjectForComInstance(pHostWrapper, CreateObjectFlags.None);
+
+            HostWrapperShim shim = new HostWrapperShim((IHostWrapper)hostWrapper);
+
+            shim.add_HostInvokeTarget(mHostInvokeTargg, out EventRegistrationToken token);
             
-#pragma warning disable CA1416 // Plattformkompatibilität überprüfen
+
+            //object localObject = shim.ToInterface();
+
+            this._RemoteObjects.Add(name, shim);
             
 
-#pragma warning restore CA1416 // Plattformkompatibilität überprüfen
-            this._RemoteObjects.Add(name, localObject);
+            Guid IID_IDispatch = new Guid("00020400-0000-0000-C000-000000000046");
 
-            var localObjectPtr = obj;
+            hr = Marshal.QueryInterface(pHostWrapper, IID_IDispatch, out nint pDisp);
+            Marshal.ThrowExceptionForHR(hr);
 
-            this.WebView.AddRemoteObject(name, localObjectPtr);
+            VARIANT v = default;
+            v.vt = VARTYPE.VT_DISPATCH;
+            v.data.pdispVal = pDisp;
+            try
+            {
+               
+
+                this.WebView.AddRemoteObject(name, ref v);
+            }
+            finally
+            {
+
+                OleAut32.VariantClear(ref v);
+            }
+
+
+            
         }
 
         public void RemoveRemoteObject(string name)

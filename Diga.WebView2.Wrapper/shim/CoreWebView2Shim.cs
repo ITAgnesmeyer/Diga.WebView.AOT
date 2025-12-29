@@ -256,9 +256,9 @@ namespace Diga.WebView2.Wrapper.shim
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string DocumentTitle => WebView.GetDocumentTitle();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void AddHostObjectToScript([In, MarshalAs(UnmanagedType.LPWStr)] string name,nint @object)
+        public void AddHostObjectToScript([In, MarshalAs(UnmanagedType.LPWStr)] string name,ref VARIANT @object)
         {
-            WebView.AddHostObjectToScript(name, @object);
+            WebView.AddHostObjectToScript(name, ref @object);
         }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void RemoveHostObjectFromScript([In, MarshalAs(UnmanagedType.LPWStr)] string name)
