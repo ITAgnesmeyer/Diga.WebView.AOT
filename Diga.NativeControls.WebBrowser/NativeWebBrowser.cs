@@ -110,7 +110,13 @@ namespace Diga.NativeControls.WebBrowser
             {
                 this._RpcHandler.RpcEvent += OnRpcEventIntern;
                 this._RpcHandler.RpcDomUnloadEvent += OnRpcDomUnloadEvent;
-                this._WebViewControl = new WebView2Control(parent, "", "", "");
+                WebView2ControlCreateParams createParams = new WebView2ControlCreateParams
+                {
+                   Language = "DE",
+                   ScrollBarStyle = COREWEBVIEW2_SCROLLBAR_STYLE.COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY,
+
+                };
+                this._WebViewControl = new WebView2Control(parent,createParams);
                 WireEvents(this._WebViewControl);
             }
             catch (Exception ex)

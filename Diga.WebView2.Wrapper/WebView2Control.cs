@@ -67,17 +67,47 @@ namespace Diga.WebView2.Wrapper
         public CookieManager GetCookieManager => this.WebView.CookieManager;
 
         private HandleRef _ParentHandle { get; set; }
+
         public string BrowserExecutableFolder { get; }
-        public string AdditionalBrowserArguments { get; }
         public string UserDataFolder { get; }
+        public string AdditionalBrowserArguments { get; }
+        protected string Language { get; private set; }
+        public bool AllowSingleSignOnUsingOSPrimaryAccount { get; private set; }
+
+        public bool ExclusiveUserDataFolderAccess { get; private set; }
+
+        public bool IsCustomCrashReportingEnabled { get; private set; }
+        public bool EnableTrackingPrevention { get; private set; }
+        public bool AreBrowserExtensionsEnabled { get; private set; }
+        public COREWEBVIEW2_CHANNEL_SEARCH_KIND ChannelSearchKind { get; private set; }
+        public COREWEBVIEW2_RELEASE_CHANNELS ReleaseChannels { get; private set; }
+        public COREWEBVIEW2_SCROLLBAR_STYLE ScrollBarStyle { get; private set; }
+
+
+
+        public List<SchemeRegistration> SchemeRegistrations { get; } = new List<SchemeRegistration>();
+
         private WebView2EnvironmentOptions Options { get; set; }
 
         private readonly Dictionary<string, object> _RemoteObjects = new Dictionary<string, object>();
-        public List<SchemeRegistration> SchemeRegistrations { get; } = new List<SchemeRegistration>();
+
         public WebView2Control(IntPtr parentHandle) : this(parentHandle, string.Empty, string.Empty, string.Empty, null)
         {
 
         }
+        public WebView2Control(IntPtr parentHandle, WebView2ControlCreateParams parameter)
+        {
+            this._ParentHandle = new HandleRef(this, parentHandle);
+            this.BrowserExecutableFolder = parameter.BrowserExecutableFolder;
+            this.UserDataFolder = parameter.UserDataFolder;
+
+            this.AdditionalBrowserArguments = parameter.AdditionalBrowserArguments;
+            this.SchemeRegistrations = parameter.SchemeRegistrations;
+            CreateWebView(parameter);
+            RefCounter += 1;
+
+        }
+
         public WebView2Control(IntPtr parentHandle, string browserExecutableFolder, string userDataFolder,
           string additionalBrowserArguments, List<SchemeRegistration> registrations)
         {
@@ -102,9 +132,16 @@ namespace Diga.WebView2.Wrapper
             CreateWebView();
             RefCounter += 1;
         }
-        private void CreateWebView()
+        private void CreateWebView(WebView2ControlCreateParams parameter = null)
         {
+            if( this._ParentHandle.Handle == IntPtr.Zero)    
+            {
+                throw new InvalidOperationException("Parent Handle is invalid");
+            }
+
+
             var handler = new EnvironmentCompletedHandler(this._ParentHandle.Handle);
+            
             handler.ControllerCompleted += OnControllerCompleted;
             handler.BeforeEnvironmentCompleted += OnBeforeEnvironmentCompletedIntern;
             handler.AfterEnvironmentCompleted += OnAfterEnvironmentCompletedIntern;
@@ -112,14 +149,9 @@ namespace Diga.WebView2.Wrapper
             handler.CompositionControllerCompleted += OnCompositionControllerCompletedIntern;
             Native.GetAvailableVersion(this.BrowserExecutableFolder, out string browserInfo);
             this._BrowserInfo = browserInfo;
+            
             this.Options = new WebView2EnvironmentOptions();
             this.Options.SetAdditionalBrowserArguments(this.AdditionalBrowserArguments);
-            Native.CompareVersion(browserInfo, this.Options.GetTargetCompatibleBrowserVersion(), out int result);
-            if (result == -1)
-            {
-                throw new Exception("The installed Browser-Version is older than (" +
-                                    this.Options.GetTargetCompatibleBrowserVersion() + ")");
-            }
 
             WebView2CustomSchemeRegistration reg = new WebView2CustomSchemeRegistration("diga");
             reg.AllowedOrgins.Add("*");
@@ -127,6 +159,29 @@ namespace Diga.WebView2.Wrapper
             reg.SetHasAuthorityComponent((CBOOL)true);
 
             this.Options.CustomSchemeRegistrations.Add(reg);
+
+            if(parameter != null)
+            {
+                this.Options.SetLanguage(parameter.Language);
+                this.Options.SetAllowSingleSignOnUsingOSPrimaryAccount((CBOOL)parameter.AllowSingleSignOnUsingOSPrimaryAccount);
+                this.Options.SetExclusiveUserDataFolderAccess((CBOOL)parameter.ExclusiveUserDataFolderAccess);
+                this.Options.SetIsCustomCrashReportingEnabled((CBOOL)parameter.IsCustomCrashReportingEnabled);
+                this.Options.SetEnableTrackingPrevention((CBOOL)parameter.EnableTrackingPrevention);
+                this.Options.SetAreBrowserExtensionsEnabled(parameter.AreBrowserExtensionsEnabled);
+                this.Options.SetChannelSearchKind(parameter.ChannelSearchKind);
+                this.Options.SetReleaseChannels(parameter.ReleaseChannels);
+                this.Options.SetScrollBarStyle(parameter.ScrollBarStyle);
+            }
+            this.Language = this.Options.GetLanguage();
+            this.AllowSingleSignOnUsingOSPrimaryAccount =(CBOOL) this.Options.GetAllowSingleSignOnUsingOSPrimaryAccount();
+            this.ExclusiveUserDataFolderAccess = (CBOOL)this.Options.GetExclusiveUserDataFolderAccess();
+            this.IsCustomCrashReportingEnabled = (CBOOL)this.Options.GetIsCustomCrashReportingEnabled();
+            this.EnableTrackingPrevention = (CBOOL)this.Options.GetEnableTrackingPrevention();
+            this.AreBrowserExtensionsEnabled = this.Options.GetAreBrowserExtensionsEnabled();
+            this.ChannelSearchKind = this.Options.GetChannelSearchKind();
+            this.ReleaseChannels = this.Options.GetReleaseChannels();
+            this.ScrollBarStyle = this.Options.GetScrollBarStyle();
+
 
             foreach (var registration in this.SchemeRegistrations)
             {
@@ -139,6 +194,17 @@ namespace Diga.WebView2.Wrapper
                     }
                 }
             }
+
+            Native.CompareVersion(browserInfo, this.Options.GetTargetCompatibleBrowserVersion(), out int result);
+            if (result == -1)
+            {
+                throw new Exception("The installed Browser-Version is older than (" +
+                                    this.Options.GetTargetCompatibleBrowserVersion() + ")");
+
+
+            }
+
+
 
             Native.CreateEnvironmentWithOptions(BrowserExecutableFolder, this.UserDataFolder, this.Options, handler);
 
@@ -875,23 +941,23 @@ namespace Diga.WebView2.Wrapper
         {
             return await this.WebView.ExecuteScriptWithResultAsync(javaScript);
         }
-        
+
         public void AddRemoteObject(string name, object obj)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("Name cannot be empty");
-            if(this._RemoteObjects.ContainsKey(name))
+            if (this._RemoteObjects.ContainsKey(name))
                 throw new ArgumentException("Name already exists");
             IHostInvokeTarget mHostInvokeTargg = obj as IHostInvokeTarget;
 
-            if (mHostInvokeTargg == null )
+            if (mHostInvokeTargg == null)
             {
                 throw new ArgumentException("Object must implement IHostInvokeTarget");
             }
 
             HRESULT hr = Native.CreateHostDispatchWrapper(out nint pHostWrapper);
 
-            if(hr.Failed)
+            if (hr.Failed)
                 throw new Exception("Could not create HostDispatchWrapper");
 
 
@@ -902,12 +968,12 @@ namespace Diga.WebView2.Wrapper
             HostWrapperShim shim = new HostWrapperShim((IHostWrapper)hostWrapper);
 
             shim.add_HostInvokeTarget(mHostInvokeTargg, out EventRegistrationToken token);
-            
+
 
             //object localObject = shim.ToInterface();
 
             this._RemoteObjects.Add(name, shim);
-            
+
 
             Guid IID_IDispatch = new Guid("00020400-0000-0000-C000-000000000046");
 
@@ -919,7 +985,7 @@ namespace Diga.WebView2.Wrapper
             v.data.pdispVal = pDisp;
             try
             {
-               
+
 
                 this.WebView.AddRemoteObject(name, ref v);
             }
@@ -930,7 +996,7 @@ namespace Diga.WebView2.Wrapper
             }
 
 
-            
+
         }
 
         public void RemoveRemoteObject(string name)
