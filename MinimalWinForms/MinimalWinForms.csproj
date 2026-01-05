@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\TestWindow\lib\Diga.WebView2.Native.dll" Link="lib\Diga.WebView2.Native.dll">
+    <None Include="..\Native\x64\Diga.WebView2.Native.dll" Link="lib\Diga.WebView2.Native.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
