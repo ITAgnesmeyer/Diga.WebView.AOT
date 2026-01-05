@@ -31,3 +31,5 @@
 /Diga.WebView2.Wrapper/bin/x64/Release/net10.0
 /TestWindow/bin/x64/Debug/net10.0
 /packages
+/TestWindow/bin/x64/Release/net10.0/win-x64
+/Diga.NativeControls.WebBrowser/bin/x64/Release/net10.0
