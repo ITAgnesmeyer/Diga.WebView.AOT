@@ -43,7 +43,9 @@ namespace MinimalWinForms
         {
             try
             {
-                this._WebViewControl = new WebView2Control(parentHandle);
+                WebView2ControlCreateParams createParams = new WebView2ControlCreateParams();
+                createParams.ScrollBarStyle = Diga.WebView2.Interop.COREWEBVIEW2_SCROLLBAR_STYLE.COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY;
+                this._WebViewControl = new WebView2Control(parentHandle,createParams);
                 WireEvents();
             }
             catch (Exception ex)

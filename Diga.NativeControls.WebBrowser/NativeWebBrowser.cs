@@ -112,7 +112,7 @@ namespace Diga.NativeControls.WebBrowser
                 this._RpcHandler.RpcDomUnloadEvent += OnRpcDomUnloadEvent;
                 WebView2ControlCreateParams createParams = new WebView2ControlCreateParams
                 {
-                   Language = "DE",
+                   Language = "de-DE",
                    ScrollBarStyle = COREWEBVIEW2_SCROLLBAR_STYLE.COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY,
 
                 };
