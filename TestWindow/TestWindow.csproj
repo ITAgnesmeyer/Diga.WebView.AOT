@@ -23,13 +23,17 @@
     <ProjectReference Include="..\Diga.WebView2.Wrapper\Diga.WebView2.Wrapper.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="lib\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\Native\x64\Diga.WebView2.Native.dll" Link="lib\Diga.WebView2.Native.dll">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	
   <ItemGroup>
-    <None Update="lib\Diga.WebView2.Native.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\Diga.WebView2.Native.lib">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="wwwroot\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
