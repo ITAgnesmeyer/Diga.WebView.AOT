@@ -40,5 +40,7 @@ namespace Diga.WebView2.Wrapper.shim
         }
 
         public uint FrameId => this.Iface.GetFrameId();
+
+
     }
 }

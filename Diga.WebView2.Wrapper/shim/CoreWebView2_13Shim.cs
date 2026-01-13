@@ -29,5 +29,17 @@ namespace Diga.WebView2.Wrapper.shim
         }
 
         public ICoreWebView2Profile Profile => this.WebView.GetProfile();
+
+        private bool _IsDisposed;
+        protected override void Dispose(bool disposing)
+        {
+            if (this._IsDisposed) return;
+            if (disposing)
+            {
+                this._WebView = null;
+                this._IsDisposed = true;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

@@ -52,5 +52,17 @@ namespace Diga.WebView2.Wrapper.shim
 
         public COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT DefaultDownloadDialogCornerAlignment { get => this.WebView.GetDefaultDownloadDialogCornerAlignment(); set => this.WebView.SetDefaultDownloadDialogCornerAlignment(value); }
         public POINT DefaultDownloadDialogMargin { get => this.WebView.GetDefaultDownloadDialogMargin(); set => this.WebView.SetDefaultDownloadDialogMargin(value); }
+
+        private bool _IsDisposed;
+        protected override void Dispose(bool disposing)
+        {
+            if (this._IsDisposed) return;
+            if (disposing)
+            {
+                this._WebView = null;
+                this._IsDisposed = true;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

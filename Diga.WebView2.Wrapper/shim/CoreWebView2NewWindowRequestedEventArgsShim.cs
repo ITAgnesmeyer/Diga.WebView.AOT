@@ -1,71 +1,138 @@
-﻿using Diga.WebView2.Interop;
-using Diga.WebView2.Wrapper.Types;
-using Microsoft.Win32.SafeHandles;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
+using Diga.WebView2.Interop;
+using Diga.WebView2.Wrapper.Types;
 
 namespace Diga.WebView2.Wrapper.shim
 {
-    public class CoreWebView2NewWindowRequestedEventArgsShim : IDisposable
+    /// <summary>
+    /// Shim-Wrapper für ICoreWebView2NewWindowRequestedEventArgs
+    /// </summary>
+    public class CoreWebView2NewWindowRequestedEventArgsShim : EventArgs,IDisposable
     {
-        private ComObjectHolder<ICoreWebView2NewWindowRequestedEventArgs> _Args;
-        private bool _IsDisposed;
-        /// Wraps in SafeHandle so resources can be released if consumer forgets to call Dispose. Recommended
-        ///             pattern for any type that is not sealed.
-        ///             https://docs.microsoft.com/dotnet/api/system.idisposable#idisposable-and-the-inheritance-hierarchy
-        private readonly SafeHandle handle = new SafeFileHandle(nint.Zero, true);
-        private ICoreWebView2NewWindowRequestedEventArgs Args
+        private ComObjectHolder<ICoreWebView2NewWindowRequestedEventArgs> _Iface;
+        //private bool disposedValue;
+        private SafeHandle handle = new SafeFileHandle(nint.Zero, true);
+        private bool disposedValue1;
+
+        /// <summary>
+        /// Gets the wrapped COM interface.
+        /// </summary>
+        private ICoreWebView2NewWindowRequestedEventArgs Iface
         {
             get
             {
-                if (_Args == null)
+                if (_Iface == null)
                 {
-                    Debug.Print(nameof(CoreWebView2NewWindowRequestedEventArgsShim) + "=>" + nameof(Args) + " is null");
-
-                    throw new InvalidOperationException(nameof(CoreWebView2NewWindowRequestedEventArgsShim) + "=>" + nameof(Args) + " is null");
+                    Debug.Print(nameof(CoreWebView2NewWindowRequestedEventArgsShim) + " Iface is null");
+                    throw new InvalidOperationException(nameof(CoreWebView2NewWindowRequestedEventArgsShim) + " Iface is null");
                 }
-                return _Args.Interface;
+
+                return _Iface.Interface;
             }
-            set { _Args = new ComObjectHolder<ICoreWebView2NewWindowRequestedEventArgs>(value); }
+            set => _Iface = new ComObjectHolder<ICoreWebView2NewWindowRequestedEventArgs>(value);
         }
-        public CoreWebView2NewWindowRequestedEventArgsShim(ICoreWebView2NewWindowRequestedEventArgs args)
+
+        /// <summary>
+        /// Initializes a new instance of the CoreWebView2NewWindowRequestedEventArgsShim class.
+        /// </summary>
+        /// <param name="iface">The COM interface to wrap</param>
+        public CoreWebView2NewWindowRequestedEventArgsShim(ICoreWebView2NewWindowRequestedEventArgs iface)
         {
-            Args = args ?? throw new ArgumentNullException(nameof(args));
+            if (iface == null) throw new ArgumentNullException(nameof(iface));
+
+            Iface = iface;
         }
-        public string uri => Args.Geturi();
 
-        public ICoreWebView2 NewWindow { get => Args.GetNewWindow(); set => Args.SetNewWindow(value); }
-        public int Handled { get => Args.GetHandled(); set => Args.SetHandled(value); }
+        #region Properties
 
-        public int IsUserInitiated => Args.GetIsUserInitiated();
+        /// <summary>
+        /// Gets the Uri property.
+        /// </summary>
+        public string Uri
+        {
+            get => Iface.GetUri();
+        }
 
-        [return: MarshalAs(UnmanagedType.Interface)]
+        /// <summary>
+        /// Gets the NewWindow property.
+        /// </summary>
+        public ICoreWebView2 NewWindow
+        {
+            get => Iface.GetNewWindow();
+            set => Iface.SetNewWindow(value);
+        }
+
+        /// <summary>
+        /// Gets the Handled property.
+        /// </summary>
+        public bool Handled
+        {
+            get => Iface.GetHandled();
+            set => Iface.SetHandled(value);
+        }
+
+        /// <summary>
+        /// Gets the IsUserInitiated property.
+        /// </summary>
+        public bool IsUserInitiated
+        {
+            get => Iface.GetIsUserInitiated();
+        }
+
+        /// <summary>
+        /// Gets the WindowFeatures property.
+        /// </summary>
+        public ICoreWebView2WindowFeatures WindowFeatures
+        {
+            get 
+            {
+                var feature = Iface.GetWindowFeatures();
+                return feature;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Wraps the GetDeferral method.
+        /// </summary>
         public ICoreWebView2Deferral GetDeferral()
         {
-            return Args.GetDeferral();
+            return Iface.GetDeferral();
         }
-
-        public ICoreWebView2WindowFeatures WindowFeatures => Args.GetWindowFeatures();
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!_IsDisposed)
+            if (!disposedValue1)
             {
                 if (disposing)
                 {
-                    handle.Dispose();
-                    _Args = null;
+                    handle?.Dispose();
+                    _Iface = null;
                 }
 
-                _IsDisposed = true;
+                disposedValue1 = true;
             }
         }
 
-
+      
         public void Dispose()
         {
+            // Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in der Methode "Dispose(bool disposing)" ein.
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        #endregion
+
+
+
+
+
     }
 }

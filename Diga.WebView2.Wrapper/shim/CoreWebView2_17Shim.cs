@@ -34,5 +34,17 @@ namespace Diga.WebView2.Wrapper.shim
         {
             this.WebView.PostSharedBufferToScript(sharedBuffer, access, additionalDataAsJson);
         }
+
+        private bool _IsDisposed;
+        protected override void Dispose(bool disposing)
+        {
+            if (this._IsDisposed) return;
+            if (disposing)
+            {
+                this._WebView = null;
+                this._IsDisposed = true;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

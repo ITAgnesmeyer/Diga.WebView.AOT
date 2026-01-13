@@ -1,9 +1,9 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
 using Diga.WebView2.Interop;
 using Diga.WebView2.Wrapper.Types;
-using Microsoft.Win32.SafeHandles;
 
 namespace Diga.WebView2.Wrapper.shim
 {
@@ -153,12 +153,6 @@ namespace Diga.WebView2.Wrapper.shim
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Finalizer for fallback cleanup.
-        /// </summary>
-        ~CoreWebView2WindowFeaturesShim()
-        {
-            Dispose(disposing: false);
-        }
+   
     }
 }

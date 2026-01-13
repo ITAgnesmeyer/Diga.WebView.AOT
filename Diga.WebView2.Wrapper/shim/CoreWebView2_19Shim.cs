@@ -29,5 +29,17 @@ namespace Diga.WebView2.Wrapper.shim
         }
 
         public COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL MemoryUsageTargetLevel { get => this.WebView.GetMemoryUsageTargetLevel(); set => this.WebView.SetMemoryUsageTargetLevel(value); }
+
+        private bool _IsDisposed;
+        protected override void Dispose(bool disposing)
+        {
+            if (this._IsDisposed) return;
+            if (disposing)
+            {
+                this._WebView = null;
+                this._IsDisposed = true;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

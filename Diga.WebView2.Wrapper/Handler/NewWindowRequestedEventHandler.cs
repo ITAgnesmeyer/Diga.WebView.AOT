@@ -20,7 +20,18 @@ namespace Diga.WebView2.Wrapper
         {
             try
             {
-                OnNewWindowRequested(new NewWindowRequestedEventArgs((ICoreWebView2NewWindowRequestedEventArgs2)args));
+                object arg = args;
+
+                //args.SetHandled(true);
+
+
+                if (arg is ICoreWebView2NewWindowRequestedEventArgs3 args3)
+                {
+                    OnNewWindowRequested(new NewWindowRequestedEventArgs(args3));
+                    return;
+                }
+
+                //OnNewWindowRequested(new NewWindowRequestedEventArgs((ICoreWebView2NewWindowRequestedEventArgs3)arg));
             }
             catch (Exception ex)
             {

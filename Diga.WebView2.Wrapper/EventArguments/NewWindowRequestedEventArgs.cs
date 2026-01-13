@@ -3,11 +3,11 @@ using Diga.WebView2.Wrapper.shim;
 
 namespace Diga.WebView2.Wrapper.EventArguments
 {
-    public class NewWindowRequestedEventArgs : CoreWebView2NewWindowRequestedEventArgs2Shim
+    public class NewWindowRequestedEventArgs : CoreWebView2NewWindowRequestedEventArgs3Shim
     {
 
 
-        public NewWindowRequestedEventArgs(ICoreWebView2NewWindowRequestedEventArgs2 args) : base(args)
+        public NewWindowRequestedEventArgs(ICoreWebView2NewWindowRequestedEventArgs3 args) : base(args)
         {
 
         }
@@ -27,8 +27,19 @@ namespace Diga.WebView2.Wrapper.EventArguments
 
         public new WebView2Deferral GetDeferral()
         {
-            return new WebView2Deferral(base.GetDeferral());
+            return new WebView2Deferral( base.GetDeferral());
         }
+        public new WebView2WindowFeatures WindowFeatures
+        {
+            get
+            {
+                var features = base.WindowFeatures;
+                return new WebView2WindowFeatures(features);
+            }
+        }
+
+
+
 
     }
 }

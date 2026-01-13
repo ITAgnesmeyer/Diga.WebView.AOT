@@ -36,5 +36,18 @@ namespace Diga.WebView2.Wrapper.shim
         {
             return Environment.CreateContextMenuItem(Label, iconStream, Kind);
         }
+
+
+        private bool _IsDisposed;
+        protected override void Dispose(bool disposing)
+        {
+            if (_IsDisposed) return;
+            if (disposing)
+            {
+                _Environment = null;
+                _IsDisposed = true;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Diga.WebView2.Wrapper;
+﻿using Diga.Core.Api.Win32.Com;
+using Diga.WebView2.Wrapper;
 using Diga.WebView2.Wrapper.EventArguments;
 using System;
 using System.Collections.Generic;
@@ -62,7 +63,38 @@ namespace MinimalWinForms
                 this._WebViewControl.Created += OnCreated;
                 this._WebViewControl.BeforeCreate += OnBeforeCreate;
                 this._WebViewControl.ServerCertificateErrorDetected += OnServerCertificateErrorDetected;
+                this._WebViewControl.NewWindowRequested += OnNewWindowRequested;
             }
+        }
+
+        private void OnNewWindowRequested(object? sender, NewWindowRequestedEventArgs e)
+        {
+            using(var deferral = e.GetDeferral())
+            {
+                //Implement your logic here
+
+                string name = e.Name;
+                string uri = e.Uri;
+                bool isUserIntended = e.IsUserInitiated;
+                var feature = e.WindowFeatures;
+
+                var shouldDisplayMenuBar = feature.ShouldDisplayStatus;
+                var shouldDisplayScrollBars = feature.ShouldDisplayScrollBars;
+                var hasSize = feature.HasSize;
+                var shouldDisplayToolBar = feature.ShouldDisplayToolbar;
+                var hasPosition = feature.HasPosition;
+
+                var handled = e.Handled;
+                e.Handled = true;
+
+            }
+
+
+
+            //var ex = HRESULT.GetExceptionForHR(handled);
+
+
+
         }
 
         private void OnServerCertificateErrorDetected(object? sender, ServerCertificateErrorDetectedEventArgs e)

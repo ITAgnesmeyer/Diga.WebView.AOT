@@ -38,6 +38,7 @@ namespace Diga.WebView2.Wrapper.shim
                 _Environment = null;
                 _IsDisposed = true;
             }
+            base.Dispose(disposing);
         }
     }
 }
