@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
+
 namespace Diga.WebView2.Interop;
 
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]

@@ -1,13 +1,10 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Diga.WebView2.Interop.COREWEBVIEW2_PERMISSION_KIND
-// Assembly: Diga.WebView2.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1E8B0323-528E-4C9C-8FF8-A486637C87E1
-// Assembly location: O:\webview2\V1096133\Diga.WebView2.Interop.dll
+﻿using System;
+using System.Runtime.InteropServices;
 
-namespace Diga.WebView2.Interop
+namespace Diga.WebView2.Interop;
+
+public enum COREWEBVIEW2_PERMISSION_KIND
 {
-  public enum COREWEBVIEW2_PERMISSION_KIND
-  {
     COREWEBVIEW2_PERMISSION_KIND_UNKNOWN_PERMISSION,
     COREWEBVIEW2_PERMISSION_KIND_MICROPHONE,
     COREWEBVIEW2_PERMISSION_KIND_CAMERA,
@@ -20,6 +17,5 @@ namespace Diga.WebView2.Interop
     COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY,
     COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS,
     COREWEBVIEW2_PERMISSION_KIND_MIDI_SYSTEM_EXCLUSIVE_MESSAGES,
-    COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT,
-  }
+    COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT
 }
