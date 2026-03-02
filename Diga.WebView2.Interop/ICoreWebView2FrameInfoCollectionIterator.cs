@@ -16,7 +16,7 @@ namespace Diga.WebView2.Interop
   public partial interface ICoreWebView2FrameInfoCollectionIterator
   {
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        int GethasCurrent();
+        int GetHasCurrent();
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
     [return: MarshalAs(UnmanagedType.Interface)]
     ICoreWebView2FrameInfo GetCurrent();

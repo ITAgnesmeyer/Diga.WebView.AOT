@@ -17,7 +17,7 @@ namespace Diga.WebView2.Interop
   {
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] 
         [return: MarshalAs(UnmanagedType.LPWStr)]
-        string Getname();
+        string GetName();
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] 
         [return: MarshalAs(UnmanagedType.LPWStr)]

@@ -20,6 +20,6 @@ namespace Diga.WebView2.Interop
 
         //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] 
         [return: MarshalAs(UnmanagedType.LPWStr)]
-        string GetsessionId();
+        string GetSessionId();
     }
 }
