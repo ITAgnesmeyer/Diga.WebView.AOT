@@ -7,16 +7,16 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<Title>Diga.WebView2.Interop.AOT</Title>
 		<Description>Diga.WebView2.Interop AOT</Description>
-		<AssemblyVersion>1.0.0.4</AssemblyVersion>
-		<FileVersion>1.0.0.4</FileVersion>
+		<AssemblyVersion>1.0.0.5</AssemblyVersion>
+		<FileVersion>1.0.0.5</FileVersion>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>Diga.WebView2.Interop.AOT</PackageId>
-		<Version>1.0.4-preview</Version>
+		<Version>1.0.5-preview</Version>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 		<SignAssembly>True</SignAssembly>
 		<DelaySign>False</DelaySign>
 		<AssemblyOriginatorKeyFile>diga.webview2.interop.snk</AssemblyOriginatorKeyFile>
-		<Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+		<Copyright>Copyright 2026 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>WebView2</PackageTags>
 		<PackageProjectUrl>https://github.com/ITAgnesmeyer/Diga.WebView.AOT</PackageProjectUrl>

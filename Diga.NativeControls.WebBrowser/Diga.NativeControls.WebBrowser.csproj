@@ -6,13 +6,13 @@
     <Nullable>disable</Nullable>
     <PackageId>Diga.NativeControls.WebBrowser.AOT</PackageId>
     <Title>Diga.NativeControls.WebBrowser.AOT</Title>
-    <Version>1.0.4-preview</Version>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <Version>1.0.5-preview</Version>
+    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <FileVersion>1.0.0.5</FileVersion>
     <IncludeSymbols>True</IncludeSymbols>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>Diga.NativeControls.WebBrowser.snk</AssemblyOriginatorKeyFile>
-    <Copyright>Copyright 2025 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
+    <Copyright>Copyright 2026 Dipl.-Ing.(FH) Guido Agnesmeyer</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
